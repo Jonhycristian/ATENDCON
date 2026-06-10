@@ -170,7 +170,7 @@ const AtendconSPA = () => {
       </header>
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-8 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-6 md:pt-20 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Office" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
@@ -185,20 +185,20 @@ const AtendconSPA = () => {
             }}
             className="max-w-3xl"
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-sm mb-4 backdrop-blur-sm">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm">
               Excelência e Tradição Contábil em BH
             </motion.div>
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
               Estruture o futuro do seu negócio com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">precisão contábil.</span>
             </motion.h1>
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg text-slate-300 mb-6 leading-relaxed max-w-2xl">
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-lg text-slate-300 mb-6 leading-relaxed max-w-2xl">
               Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
             </motion.p>
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4">
-              <a href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria para a minha empresa.")}`} className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                Agendar Consultoria <ArrowRight size={20}/>
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <a href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria para a minha empresa.")}`} className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                Agendar Consultoria <ArrowRight size={18} className="md:w-5 md:h-5"/>
               </a>
-              <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
+              <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
                 Explorar Serviços
               </a>
             </motion.div>
@@ -208,7 +208,7 @@ const AtendconSPA = () => {
             initial={{ opacity: 0, y: 40 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12"
+            className="grid grid-cols-3 gap-2 md:gap-6 mt-8 md:mt-12"
           >
             {[
               { label: "Anos de Experiência", value: 10, prefix: "+" },
@@ -221,12 +221,12 @@ const AtendconSPA = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7 + (i * 0.1), duration: 0.5, type: "spring" }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/10 backdrop-blur-md border border-white/10 p-5 md:p-6 rounded-2xl text-white cursor-default"
+                className="bg-white/10 backdrop-blur-md border border-white/10 p-3 md:p-6 rounded-2xl text-white cursor-default text-center sm:text-left flex flex-col justify-center"
               >
-                <div className="text-3xl md:text-4xl font-black text-blue-400 mb-1">
+                <div className="text-xl sm:text-3xl md:text-4xl font-black text-blue-400 mb-0.5 md:mb-1">
                   <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                 </div>
-                <div className="text-sm md:text-base text-slate-300">{stat.label}</div>
+                <div className="text-[10px] sm:text-xs md:text-base text-slate-300 leading-tight">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
