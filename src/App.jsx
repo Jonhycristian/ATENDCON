@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { 
   Menu, X, TrendingUp, Calculator, Users, Briefcase, 
   Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight 
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import logo from './assets/logo.png';
 import logo1 from './assets/logo1.png';
 import logo2 from './assets/logo2.png';
@@ -12,6 +13,13 @@ const AtendconSPA = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Barra de progresso de scroll
   const { scrollYProgress } = useScroll();
@@ -64,7 +72,7 @@ const AtendconSPA = () => {
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-50" style={{ scaleX }} />
 
       {/* 1. NAVBAR */}
-      <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/50 transition-all">
+      <header className={`fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300 ${isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
@@ -101,7 +109,7 @@ const AtendconSPA = () => {
               <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)}>Quem Somos</a>
               <a href="#faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
               <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 font-bold mt-2">Área do Cliente</a>
-              <a href={WHATSAPP_LINK} className="bg-blue-600 text-white text-center py-3 rounded-xl mt-2">Falar com Especialista</a>
+              <a href={WHATSAPP_LINK} className="bg-blue-600 text-white text-center py-3 rounded-full mt-2">Falar com Especialista</a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -129,10 +137,10 @@ const AtendconSPA = () => {
               Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={WHATSAPP_LINK} className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
+              <a href={WHATSAPP_LINK} className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
                 Agendar Consultoria <ArrowRight size={20}/>
               </a>
-              <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
+              <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
                 Explorar Serviços
               </a>
             </div>
@@ -194,7 +202,7 @@ const AtendconSPA = () => {
                 <div className="mb-6">{selectedService.icon}</div>
                 <h3 className="text-2xl font-bold mb-4">{selectedService.title}</h3>
                 <p className="text-slate-600 mb-8">{selectedService.desc}</p>
-                <a href={WHATSAPP_LINK} className="block w-full bg-blue-600 text-white text-center py-3 rounded-xl font-semibold hover:bg-blue-700">
+                <a href={WHATSAPP_LINK} className="block w-full bg-blue-600 text-white text-center py-3 rounded-full font-semibold hover:bg-blue-700">
                   Solicitar este serviço
                 </a>
               </motion.div>
@@ -260,7 +268,7 @@ const AtendconSPA = () => {
           <div className="lg:col-span-1">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Dúvidas Frequentes</h2>
             <p className="text-slate-600 mb-8">Não encontrou o que procurava? Fale diretamente com nossa equipe.</p>
-            <a href={WHATSAPP_LINK} className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-slate-800 transition">
+            <a href={WHATSAPP_LINK} className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-slate-800 transition">
               Chamar no WhatsApp <ArrowRight size={18}/>
             </a>
           </div>
@@ -296,7 +304,7 @@ const AtendconSPA = () => {
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
           <p className="text-xl text-blue-100 mb-10">Economize tempo, dinheiro e frustração na gestão das suas finanças.</p>
-          <a href={WHATSAPP_LINK} className="inline-block bg-white text-blue-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
+          <a href={WHATSAPP_LINK} className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
             Iniciar Diagnóstico Gratuito
           </a>
         </div>
@@ -340,9 +348,9 @@ const AtendconSPA = () => {
       <a 
         href={WHATSAPP_LINK} 
         target="_blank" rel="noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center"
+        className={`fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0 pointer-events-none'}`}
       >
-        <Phone size={28} /> {/* Substitua pelo React Icon do FaWhatsapp se preferir */}
+        <FaWhatsapp size={32} />
       </a>
     </div>
   );
