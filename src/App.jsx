@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring, useMotionValue, useTransform, animate } from 'framer-motion';
 import { 
   Menu, X, TrendingUp, Calculator, Users, Briefcase, 
   Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight 
@@ -8,6 +8,18 @@ import { FaWhatsapp } from 'react-icons/fa';
 import logo from './assets/logo.png';
 import logo1 from './assets/logo1.png';
 import logo2 from './assets/logo2.png';
+
+const Counter = ({ from, to, prefix = "", suffix = "" }) => {
+  const count = useMotionValue(from);
+  const rounded = useTransform(count, (latest) => prefix + Math.round(latest) + suffix);
+
+  useEffect(() => {
+    const controls = animate(count, to, { duration: 2.5, delay: 0.8, ease: "easeOut" });
+    return controls.stop;
+  }, [count, to]);
+
+  return <motion.span>{rounded}</motion.span>;
+};
 
 const AtendconSPA = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -158,13 +170,13 @@ const AtendconSPA = () => {
       </header>
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-24 pb-12 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Office" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mt-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
           <motion.div 
             initial="hidden" animate="visible"
             variants={{
@@ -173,13 +185,13 @@ const AtendconSPA = () => {
             }}
             className="max-w-3xl"
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-sm mb-6 backdrop-blur-sm">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-sm mb-4 backdrop-blur-sm">
               Excelência e Tradição Contábil em BH
             </motion.div>
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
               Estruture o futuro do seu negócio com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">precisão contábil.</span>
             </motion.h1>
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg text-slate-300 mb-6 leading-relaxed max-w-2xl">
               Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
             </motion.p>
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4">
@@ -196,12 +208,12 @@ const AtendconSPA = () => {
             initial={{ opacity: 0, y: 40 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-12 md:mt-16"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12"
           >
             {[
-              { label: "Anos de Experiência", value: "+10" },
-              { label: "Clientes Satisfeitos", value: "+500" },
-              { label: "Conformidade Fiscal", value: "100%" }
+              { label: "Anos de Experiência", value: 10, prefix: "+" },
+              { label: "Clientes Satisfeitos", value: 500, prefix: "+" },
+              { label: "Conformidade Fiscal", value: 100, suffix: "%" }
             ].map((stat, i) => (
               <motion.div 
                 key={i} 
@@ -211,7 +223,9 @@ const AtendconSPA = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-white/10 backdrop-blur-md border border-white/10 p-5 md:p-6 rounded-2xl text-white cursor-default"
               >
-                <div className="text-3xl md:text-4xl font-black text-blue-400 mb-1">{stat.value}</div>
+                <div className="text-3xl md:text-4xl font-black text-blue-400 mb-1">
+                  <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                </div>
                 <div className="text-sm md:text-base text-slate-300">{stat.label}</div>
               </motion.div>
             ))}
