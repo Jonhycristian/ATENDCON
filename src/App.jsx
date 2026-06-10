@@ -72,8 +72,8 @@ const AtendconSPA = () => {
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-50" style={{ scaleX }} />
 
       {/* 1. NAVBAR */}
-      <header className={`fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300 ${isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <header className={`fixed w-full top-0 z-40 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/50 py-2' : 'bg-transparent py-4'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
             <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain" />
