@@ -72,25 +72,28 @@ const AtendconSPA = () => {
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-50" style={{ scaleX }} />
 
       {/* 1. NAVBAR */}
-      <header className={`fixed w-full top-0 z-40 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/50 py-2' : 'bg-transparent py-4'}`}>
+      <header className={`fixed w-full top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-sm' : 'py-4'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
             <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain" />
           </div>
           
-          <nav className="hidden md:flex gap-8 items-center font-medium text-sm">
+          <nav className="hidden md:flex flex-1 justify-center gap-10 items-center font-medium text-sm text-slate-600">
             <a href="#servicos" className="hover:text-blue-600 transition-colors">Serviços</a>
             <a href="#metodo" className="hover:text-blue-600 transition-colors">Método</a>
             <a href="#sobre" className="hover:text-blue-600 transition-colors">Quem Somos</a>
             <a href="#faq" className="hover:text-blue-600 transition-colors">FAQ</a>
+          </nav>
+
+          <div className="hidden md:flex items-center gap-6 text-sm">
             <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-slate-900 hover:text-blue-600 font-bold transition-colors">
               Área do Cliente
             </a>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30">
+            <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
               Falar com Especialista
             </a>
-          </nav>
+          </div>
 
           <button className="md:hidden text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
