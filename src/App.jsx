@@ -5,6 +5,8 @@ import {
   Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight 
 } from 'lucide-react';
 import logo from './assets/logo.png';
+import logo1 from './assets/logo1.png';
+import logo2 from './assets/logo2.png';
 
 const AtendconSPA = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -64,8 +66,9 @@ const AtendconSPA = () => {
       {/* 1. NAVBAR */}
       <header className="fixed w-full top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/50 transition-all">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <img src={logo} alt="Atendcon Logo" className="h-10 md:h-12 w-auto object-contain" />
+          <div className="flex items-center gap-3">
+            <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
+            <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain" />
           </div>
           
           <nav className="hidden md:flex gap-8 items-center font-medium text-sm">
@@ -303,8 +306,9 @@ const AtendconSPA = () => {
       <footer className="bg-[#020617] text-slate-400 py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div>
-            <div className="flex items-center mb-6">
-              <img src={logo} alt="Atendcon Logo" className="h-10 md:h-12 w-auto object-contain" />
+            <div className="flex items-center gap-3 mb-6">
+              <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
+              <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain" />
             </div>
             <p className="text-sm">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
           </div>
