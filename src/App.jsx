@@ -158,49 +158,62 @@ const AtendconSPA = () => {
       </header>
 
       {/* 2. HERO SECTION */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-24 pb-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Office" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mt-10">
           <motion.div 
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            initial="hidden" animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+            }}
+            className="max-w-3xl"
           >
-            <div className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-sm mb-6 backdrop-blur-sm">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-sm mb-6 backdrop-blur-sm">
               Excelência e Tradição Contábil em BH
-            </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+            </motion.div>
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
               Estruture o futuro do seu negócio com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">precisão contábil.</span>
-            </h1>
-            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+            </motion.h1>
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
               Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4">
               <a href={WHATSAPP_LINK} className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
                 Agendar Consultoria <ArrowRight size={20}/>
               </a>
               <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
                 Explorar Serviços
               </a>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-20"
+            initial={{ opacity: 0, y: 40 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-12 md:mt-16"
           >
             {[
               { label: "Anos de Experiência", value: "+10" },
               { label: "Clientes Satisfeitos", value: "+500" },
               { label: "Conformidade Fiscal", value: "100%" }
             ].map((stat, i) => (
-              <div key={i} className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-white">
-                <div className="text-3xl font-black text-blue-400 mb-1">{stat.value}</div>
-                <div className="text-sm text-slate-300">{stat.label}</div>
-              </div>
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7 + (i * 0.1), duration: 0.5, type: "spring" }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white/10 backdrop-blur-md border border-white/10 p-5 md:p-6 rounded-2xl text-white cursor-default"
+              >
+                <div className="text-3xl md:text-4xl font-black text-blue-400 mb-1">{stat.value}</div>
+                <div className="text-sm md:text-base text-slate-300">{stat.label}</div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
