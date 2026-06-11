@@ -457,9 +457,10 @@ const AtendconSPA = () => {
 
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
             className="order-2 lg:order-1 flex justify-center lg:justify-start"
           >
             <div className="relative">
@@ -537,20 +538,20 @@ const AtendconSPA = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Floating Badges Inside Phone */}
+                  <motion.div 
+                    initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.6 }}
+                    className="absolute bottom-4 left-4 right-4 bg-white p-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center gap-3 border border-slate-100 z-30"
+                  >
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0"><ShieldCheck size={16} /></div>
+                    <div>
+                      <div className="text-[10px] text-slate-500 font-medium">Conformidade</div>
+                      <div className="font-bold text-slate-900 text-xs">100% Segura</div>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
-              
-              {/* Floating Badges */}
-              <motion.div 
-                initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}
-                className="absolute top-1/2 -translate-y-1/2 -right-8 md:-right-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-100 z-30"
-              >
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600"><ShieldCheck size={20} /></div>
-                <div>
-                  <div className="text-xs text-slate-500 font-medium">Conformidade</div>
-                  <div className="font-bold text-slate-900 text-sm">100% Segura</div>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
 
