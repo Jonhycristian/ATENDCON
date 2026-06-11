@@ -291,25 +291,49 @@ const AtendconSPA = () => {
       </section>
 
       {/* 4. METODO SECTION */}
-      <section id="metodo" className="py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nosso Método</h2>
-            <p className="text-slate-400 max-w-xl">Um processo validado para trazer segurança jurídica e performance financeira para o seu negócio.</p>
+      <section id="metodo" className="py-24 bg-[#020617] text-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Nosso Método</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto text-lg">Um processo validado para trazer segurança jurídica e performance financeira para o seu negócio.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {/* Connecting line for desktop */}
+            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-900 via-blue-500 to-blue-900 -translate-y-1/2 opacity-30"></div>
+
             {[
-              { step: "01", title: "Diagnóstico", desc: "Análise profunda da atual situação fiscal e contábil." },
-              { step: "02", title: "Compliance", desc: "Saneamento de pendências e regularização completa." },
-              { step: "03", title: "Planejamento", desc: "Desenho de regimes tributários e metas financeiras." },
-              { step: "04", title: "Performance", desc: "Acompanhamento mensal com auditoria eletrônica." }
+              { step: "01", title: "Diagnóstico", desc: "Análise profunda da atual situação fiscal e contábil.", color: "from-blue-500 to-cyan-400" },
+              { step: "02", title: "Compliance", desc: "Saneamento de pendências e regularização completa.", color: "from-indigo-500 to-blue-400" },
+              { step: "03", title: "Planejamento", desc: "Desenho de regimes tributários e metas financeiras.", color: "from-violet-500 to-indigo-400" },
+              { step: "04", title: "Performance", desc: "Acompanhamento mensal com auditoria eletrônica.", color: "from-purple-500 to-violet-400" }
             ].map((item, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-3xl relative overflow-hidden">
-                <span className="text-6xl font-black text-white/5 absolute -top-2 -right-2">{item.step}</span>
-                <h4 className="text-xl font-bold mb-3 relative z-10 text-blue-400">{item.title}</h4>
-                <p className="text-slate-400 text-sm relative z-10">{item.desc}</p>
-              </div>
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2, duration: 0.6 }}
+                whileHover={{ y: -10 }}
+                className="bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:border-slate-700 transition-all shadow-2xl"
+              >
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" style={{ backgroundImage: `var(--tw-gradient-stops)` }}></div>
+                
+                <div className={`w-14 h-14 rounded-2xl mb-6 flex items-center justify-center bg-gradient-to-br ${item.color} shadow-lg text-white font-black text-xl`}>
+                  {item.step}
+                </div>
+                
+                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{item.title}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                
+                {/* Background large number */}
+                <span className="text-8xl font-black text-white/5 absolute -bottom-4 -right-4 group-hover:text-white/10 transition-colors">{item.step}</span>
+              </motion.div>
             ))}
           </div>
         </div>
