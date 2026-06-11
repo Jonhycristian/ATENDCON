@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useMotionValue, useTransform, animate } from 'framer-motion';
 import { 
   Menu, X, TrendingUp, Calculator, Users, Briefcase, 
-  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, Instagram
+  Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight
 } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import logo from './assets/logo.png';
 import logo1 from './assets/logo1.png';
 import logo2 from './assets/logo2.png';
@@ -463,7 +463,7 @@ const AtendconSPA = () => {
             </div>
             <div className="mt-8">
               <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-10 h-10 bg-slate-800 text-slate-300 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-lg hover:-translate-y-1">
-                <Instagram size={20} />
+                <FaInstagram size={20} />
               </a>
             </div>
           </div>
