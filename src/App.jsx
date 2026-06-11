@@ -37,7 +37,7 @@ const AtendconSPA = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
-  const WHATSAPP_LINK = "https://wa.me/5531983858280"; // WhatsApp Oficial
+  const WHATSAPP_LINK = "https://api.whatsapp.com/send/?phone=5531983858280"; // WhatsApp Oficial
 
   const services = [
     {
@@ -141,7 +141,7 @@ const AtendconSPA = () => {
             <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-slate-900 hover:text-blue-600 font-bold transition-colors">
               Área do Cliente
             </a>
-            <a href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}`} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
+            <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
               Falar com Especialista
             </a>
           </div>
@@ -163,7 +163,7 @@ const AtendconSPA = () => {
               <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)}>Quem Somos</a>
               <a href="#faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
               <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 font-bold mt-2">Área do Cliente</a>
-              <a href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}`} className="bg-blue-600 text-white text-center py-3 rounded-full mt-2">Falar com Especialista</a>
+              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} className="bg-blue-600 text-white text-center py-3 rounded-full mt-2">Falar com Especialista</a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -195,7 +195,7 @@ const AtendconSPA = () => {
               Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
             </motion.p>
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <a href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria para a minha empresa.")}`} className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
+              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria para a minha empresa.") + "&type=phone_number&app_absent=0"}`} className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
                 Agendar Consultoria <ArrowRight size={18} className="md:w-5 md:h-5"/>
               </a>
               <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
@@ -281,7 +281,7 @@ const AtendconSPA = () => {
                     ))}
                   </ul>
                 )}
-                <a href={`${WHATSAPP_LINK}?text=${encodeURIComponent(`Olá! Acessei o site da Atendcon e gostaria de saber mais detalhes sobre o serviço de ${selectedService.title}.`)}`} target="_blank" rel="noreferrer" className="block w-full bg-blue-600 text-white text-center py-3 rounded-full font-semibold hover:bg-blue-700">
+                <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent(`Olá! Acessei o site da Atendcon e gostaria de saber mais detalhes sobre o serviço de ${selectedService.title}.`) + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="block w-full bg-blue-600 text-white text-center py-3 rounded-full font-semibold hover:bg-blue-700">
                   Solicitar este serviço
                 </a>
               </motion.div>
@@ -350,7 +350,7 @@ const AtendconSPA = () => {
           <div className="lg:col-span-1">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Dúvidas Frequentes</h2>
             <p className="text-slate-600 mb-8">Não encontrou o que procurava? Fale diretamente com nossa equipe.</p>
-            <a href={WHATSAPP_LINK} className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-slate-800 transition">
+            <a href={`${WHATSAPP_LINK}&type=phone_number&app_absent=0`} className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-slate-800 transition">
               Chamar no WhatsApp <ArrowRight size={18}/>
             </a>
           </div>
@@ -409,7 +409,7 @@ const AtendconSPA = () => {
                 <label className="block text-sm font-medium text-slate-700 mb-1">Mensagem</label>
                 <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"></textarea>
               </div>
-              <button type="button" onClick={() => window.open(`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de entrar em contato com a Atendcon.")}`)} className="w-full bg-slate-900 text-white font-bold rounded-full py-4 hover:bg-blue-600 transition-colors">
+              <button type="button" onClick={() => window.open(`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de entrar em contato com a Atendcon.") + "&type=phone_number&app_absent=0"}`)} className="w-full bg-slate-900 text-white font-bold rounded-full py-4 hover:bg-blue-600 transition-colors">
                 Enviar Mensagem
               </button>
             </form>
@@ -436,7 +436,7 @@ const AtendconSPA = () => {
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
           <p className="text-xl text-blue-100 mb-10">Agende uma conversa e descubra como podemos alavancar o seu negócio.</p>
-          <a href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de iniciar meu diagnóstico gratuito e transformar a contabilidade da minha empresa.")}`} target="_blank" rel="noreferrer" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
+          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de iniciar meu diagnóstico gratuito e transformar a contabilidade da minha empresa.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
             Iniciar Diagnóstico Gratuito
           </a>
         </div>
@@ -485,7 +485,7 @@ const AtendconSPA = () => {
 
       {/* 10. FLOATING WHATSAPP */}
       <a 
-        href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Olá! Gostaria de tirar algumas dúvidas.")}`} 
+        href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de tirar algumas dúvidas.") + "&type=phone_number&app_absent=0"}`} 
         target="_blank" rel="noreferrer"
         className={`fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0 pointer-events-none'}`}
       >
