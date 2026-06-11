@@ -456,12 +456,13 @@ const AtendconSPA = () => {
             <h4 className="text-white font-bold mb-6">Contato</h4>
             <div className="space-y-4 text-sm">
               <p className="flex items-center gap-3"><MapPin size={18} className="text-blue-500 flex-shrink-0" /> Avenida Cristiano Machado 640 sala 1507<br/>Sagrada Familia - BH- CEP 31030-514</p>
-              <p className="flex items-center gap-3"><Phone size={18} className="text-blue-500 flex-shrink-0" /> (31) 98385-8280 / (31) 97500-4001</p>
-              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> comercial@atendcon.com.br</p>
-              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> operacional@atendcon.com.br</p>
+              <p className="flex items-center gap-3"><FaWhatsapp size={18} className="text-blue-500 flex-shrink-0" /> (31) 98385-8280</p>
+              <p className="flex items-center gap-3"><Phone size={18} className="text-blue-500 flex-shrink-0" /> (31) 97500-4001</p>
+              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Comercial@atendcon.com.br</p>
+              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Operacional@atendcon.com.br</p>
             </div>
             <div className="mt-8">
-              <a href="https://www.instagram.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-10 h-10 bg-slate-800 text-slate-300 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-lg hover:-translate-y-1">
+              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-10 h-10 bg-slate-800 text-slate-300 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-lg hover:-translate-y-1">
                 <Instagram size={20} />
               </a>
             </div>
