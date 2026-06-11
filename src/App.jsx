@@ -25,6 +25,7 @@ const AtendconSPA = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -197,9 +198,9 @@ const AtendconSPA = () => {
               Fornecemos serviços personalizados de contabilidade, gestão fiscal e consultoria empresarial. Deixe a burocracia com especialistas e foque exclusivamente no crescimento da sua empresa.
             </motion.p>
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria para a minha empresa.") + "&type=phone_number&app_absent=0"}`} className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
+              <button onClick={() => setIsConsultationModalOpen(true)} className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2">
                 Agendar Consultoria <ArrowRight size={18} className="md:w-5 md:h-5"/>
-              </a>
+              </button>
               <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
                 Explorar Serviços
               </a>
@@ -286,6 +287,48 @@ const AtendconSPA = () => {
                 <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent(`Olá! Acessei o site da Atendcon e gostaria de saber mais detalhes sobre o serviço de ${selectedService.title}.`) + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="block w-full bg-blue-600 text-white text-center py-3 rounded-full font-semibold hover:bg-blue-700">
                   Solicitar este serviço
                 </a>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
+
+        {/* Modal de Triagem de Agendamento */}
+        <AnimatePresence>
+          {isConsultationModalOpen && (
+            <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="bg-white p-6 md:p-8 rounded-3xl max-w-md w-full relative max-h-[90vh] overflow-y-auto custom-scrollbar"
+              >
+                <button onClick={() => setIsConsultationModalOpen(false)} className="absolute top-6 right-6 text-slate-400 hover:text-slate-900"><X /></button>
+                <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-6">
+                  <FaWhatsapp size={24} />
+                </div>
+                <h3 className="text-2xl font-bold mb-2 text-slate-900">Como podemos ajudar?</h3>
+                <p className="text-slate-600 mb-6 text-sm">Selecione o assunto principal para direcionarmos o seu atendimento da melhor forma possível.</p>
+                
+                <div className="space-y-3">
+                  {[
+                    "Abertura de Empresa",
+                    "Gestão Contábil",
+                    "Gestão Fiscal",
+                    "Departamento Pessoal",
+                    "Legalização e Pessoa Física",
+                    "Auditoria Eletrônica",
+                    "Outros Assuntos"
+                  ].map((option, idx) => (
+                    <a 
+                      key={idx}
+                      href={`${WHATSAPP_LINK}&text=${encodeURIComponent(`Olá! Gostaria de agendar uma consultoria e saber mais sobre: *${option}*.`) + "&type=phone_number&app_absent=0"}`}
+                      target="_blank" rel="noreferrer"
+                      onClick={() => setIsConsultationModalOpen(false)}
+                      className="block w-full text-left px-5 py-3.5 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-700 font-medium text-slate-700 transition-all flex justify-between items-center group"
+                    >
+                      {option}
+                      <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
+                </div>
               </motion.div>
             </div>
           )}
