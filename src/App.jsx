@@ -4,7 +4,7 @@ import {
   Menu, X, TrendingUp, Calculator, Users, Briefcase, 
   Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight
 } from 'lucide-react';
-import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaGooglePlay, FaApple } from 'react-icons/fa';
 import logo from './assets/logo.png';
 import logo1 from './assets/logo1.png';
 import logo2 from './assets/logo2.png';
@@ -501,9 +501,28 @@ const AtendconSPA = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center">
-          <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
-          <p className="mt-2 md:mt-0 text-slate-500">CNPJ: 00.000.000/0000-00</p>
+        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col items-center md:items-start text-sm">
+            <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
+            <p className="mt-1 text-slate-500">CNPJ: 12.345.678/0001-90</p>
+          </div>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="#" className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl transition-all text-white">
+              <FaGooglePlay size={20} className="text-blue-400" />
+              <div className="text-left">
+                <div className="text-[10px] leading-none text-slate-400">Disponível no</div>
+                <div className="text-sm font-bold leading-tight">Google Play</div>
+              </div>
+            </a>
+            <a href="#" className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl transition-all text-white">
+              <FaApple size={24} className="text-slate-200" />
+              <div className="text-left">
+                <div className="text-[10px] leading-none text-slate-400">Baixar na</div>
+                <div className="text-sm font-bold leading-tight">App Store</div>
+              </div>
+            </a>
+          </div>
         </div>
       </footer>
 
