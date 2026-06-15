@@ -607,7 +607,7 @@ const AtendconSPA = () => {
             </ul>
 
             <div className="flex flex-wrap gap-4 mt-6">
-              <a href="#" className="flex items-center gap-3 bg-black hover:bg-slate-900 hover:scale-105 border border-slate-800 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-fit">
+              <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-black hover:bg-slate-900 hover:scale-105 border border-slate-800 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-fit">
                 <FaGooglePlay size={24} className="text-white" />
                 <div className="text-left">
                   <div className="text-[9px] leading-none text-slate-300 mb-0.5">DISPONÍVEL NO</div>
@@ -756,7 +756,7 @@ const AtendconSPA = () => {
                 <FaInstagram size={20} />
               </a>
               <div className="h-8 w-px bg-slate-800 hidden sm:block"></div>
-              <a href="#" className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-blue-500/50 shrink-0">
+              <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-blue-500/50 shrink-0">
                 <FaGooglePlay size={16} className="text-white" />
                 <div className="text-left">
                   <div className="text-[9px] leading-none text-emerald-100">Disponível no</div>
