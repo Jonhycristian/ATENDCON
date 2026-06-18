@@ -892,7 +892,7 @@ const AtendconSPA = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 md:pb-16">
             
             {/* Logo & Sobre */}
-            <div className="flex flex-col items-start text-left">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-6 bg-white/5 p-4 rounded-2xl border border-white/10 shadow-xl inline-block backdrop-blur-sm">
                 <img src="/logo02.png" alt="Atendcon Logo" className="h-12 md:h-16 w-auto object-contain" />
               </div>
@@ -900,7 +900,7 @@ const AtendconSPA = () => {
             </div>
 
             {/* Links Rápidos */}
-            <div className="flex flex-col items-start text-left">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>Links Rápidos</h4>
               <ul className="flex flex-col gap-3 text-sm font-medium">
                 <li><a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 transition flex items-center gap-2"><ArrowRight size={14}/> Área do Cliente</a></li>
@@ -914,20 +914,20 @@ const AtendconSPA = () => {
             </div>
 
             {/* Contato */}
-            <div className="flex flex-col items-start text-left">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>Contato</h4>
               <ul className="space-y-4 text-sm text-slate-300 font-medium">
-                <li className="flex items-center gap-3"><FaWhatsapp size={18} className="text-emerald-400 shrink-0" /> (31) 98385-8280</li>
-                <li className="flex items-center gap-3"><Phone size={18} className="text-blue-400 shrink-0" /> (31) 97500-4001</li>
-                <li className="flex items-center gap-3"><Mail size={18} className="text-blue-400 shrink-0" /> Comercial@atendcon.com.br</li>
-                <li className="flex items-center gap-3"><Mail size={18} className="text-blue-400 shrink-0" /> Operacional@atendcon.com.br</li>
-                <li className="flex items-start gap-3"><MapPin size={18} className="text-blue-400 shrink-0 mt-0.5" /> <span>Avenida Cristiano Machado 640<br/>sala 1507<br/>Sagrada Familia - BH<br/>CEP 31030-514</span></li>
-                <li className="flex items-center gap-3"><Clock size={18} className="text-blue-400 shrink-0" /> Seg a Sex: 08:00 às 18:00</li>
+                <li className="flex items-center justify-center md:justify-start gap-3"><FaWhatsapp size={18} className="text-blue-400 shrink-0" /> (31) 98385-8280</li>
+                <li className="flex items-center justify-center md:justify-start gap-3"><Phone size={18} className="text-blue-400 shrink-0" /> (31) 97500-4001</li>
+                <li className="flex items-center justify-center md:justify-start gap-3"><Mail size={18} className="text-blue-400 shrink-0" /> Comercial@atendcon.com.br</li>
+                <li className="flex items-center justify-center md:justify-start gap-3"><Mail size={18} className="text-blue-400 shrink-0" /> Operacional@atendcon.com.br</li>
+                <li className="flex items-start justify-center md:justify-start gap-3"><MapPin size={18} className="text-blue-400 shrink-0 mt-0.5" /> <span>Avenida Cristiano Machado 640<br/>sala 1507<br/>Sagrada Familia - BH<br/>CEP 31030-514</span></li>
+                <li className="flex items-center justify-center md:justify-start gap-3"><Clock size={18} className="text-blue-400 shrink-0" /> Seg a Sex: 08:00 às 18:00</li>
               </ul>
             </div>
 
             {/* Apps & Redes */}
-            <div className="flex flex-col items-start text-left">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>Nossos Apps</h4>
               <div className="flex flex-col gap-3 w-full max-w-[200px]">
                 <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-full">
@@ -947,7 +947,7 @@ const AtendconSPA = () => {
               </div>
 
               <h4 className="text-white font-bold text-lg mt-8 mb-4 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-pink-500 rounded-full"></div>Redes e Avaliações</h4>
-              <div className="flex flex-wrap justify-start gap-3">
+              <div className="flex flex-wrap justify-center md:justify-start gap-3">
                 <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
                   <FaInstagram size={20} />
                 </a>
