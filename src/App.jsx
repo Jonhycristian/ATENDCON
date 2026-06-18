@@ -651,11 +651,8 @@ const AtendconSPA = () => {
 
       {/* 9. CTA FINAL */}
       <section className="py-24 bg-blue-600 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 mix-blend-overlay">
-          <picture>
-            <source media="(max-width: 768px)" srcSet="/fundo02_mobile.png" />
-            <img src="/fundo02.png" alt="Background" className="w-full h-full object-cover object-center" />
-          </picture>
+        <div className="absolute inset-0 opacity-20 mix-blend-overlay">
+          <img src="/fundo04.png" alt="Background" className="w-full h-full object-cover object-center" />
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
