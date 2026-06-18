@@ -459,9 +459,9 @@ const AtendconSPA = () => {
             ].map((item, i) => (
               <motion.div 
                 key={i} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "0px 0px -50px 0px" }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:-translate-y-2 hover:border-slate-700 transition-all duration-300 shadow-2xl"
               >
