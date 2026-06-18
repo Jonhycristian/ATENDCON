@@ -644,7 +644,7 @@ const AtendconSPA = () => {
                 <img src="/app.png" alt="Aplicativo ATENDCON" className="w-full h-auto object-cover rounded-2xl" />
                 
                 {/* Logo sobreposta */}
-                <div className="absolute top-11 left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                <div className="absolute top-8 md:top-11 left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
                   <img src={logo1} alt="Logo ATENDCON" className="w-20 h-auto opacity-90" />
                 </div>
               </div>
@@ -886,25 +886,21 @@ const AtendconSPA = () => {
         </div>
       </section>
 
-      {/* 9. FOOTER */}
-      <footer className="bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-slate-800/50 relative overflow-hidden">
-        {/* Glow Effects */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      {/* 11. FOOTER */}
+      <footer className="bg-slate-900 pt-16 md:pt-24 pb-6 border-t border-slate-800 relative z-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 md:pb-16">
             
             {/* Logo & Sobre */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex flex-col items-start text-left">
               <div className="mb-6 bg-white/5 p-4 rounded-2xl border border-white/10 shadow-xl inline-block backdrop-blur-sm">
-                <img src="/logo02.png" alt="Atendcon Logo" className="h-16 w-auto object-contain" />
+                <img src="/logo02.png" alt="Atendcon Logo" className="h-12 md:h-16 w-auto object-contain" />
               </div>
               <p className="text-sm text-slate-400 leading-relaxed max-w-xs font-medium">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
             </div>
 
             {/* Links Rápidos */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex flex-col items-start text-left">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>Links Rápidos</h4>
               <ul className="flex flex-col gap-3 text-sm font-medium">
                 <li><a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 transition flex items-center gap-2"><ArrowRight size={14}/> Área do Cliente</a></li>
@@ -918,7 +914,7 @@ const AtendconSPA = () => {
             </div>
 
             {/* Contato */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex flex-col items-start text-left">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>Contato</h4>
               <ul className="space-y-4 text-sm text-slate-300 font-medium">
                 <li className="flex items-center gap-3"><FaWhatsapp size={18} className="text-emerald-400 shrink-0" /> (31) 98385-8280</li>
@@ -931,7 +927,7 @@ const AtendconSPA = () => {
             </div>
 
             {/* Apps & Redes */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex flex-col items-start text-left">
               <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>Nossos Apps</h4>
               <div className="flex flex-col gap-3 w-full max-w-[200px]">
                 <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-full">
@@ -951,7 +947,7 @@ const AtendconSPA = () => {
               </div>
 
               <h4 className="text-white font-bold text-lg mt-8 mb-4 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-pink-500 rounded-full"></div>Redes e Avaliações</h4>
-              <div className="flex flex-wrap justify-center md:justify-start gap-3">
+              <div className="flex flex-wrap justify-start gap-3">
                 <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
                   <FaInstagram size={20} />
                 </a>
