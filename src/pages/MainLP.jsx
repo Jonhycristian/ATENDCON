@@ -25,7 +25,7 @@ const faqs = [
   { q: "Como trocar de contador?", a: "O processo é simples, rápido e nós cuidamos de tudo. Entramos em contato com o seu contador atual, solicitamos a documentação necessária e fazemos a transição de forma segura, sem interromper as atividades da sua empresa." },
   { q: "Quanto custa abrir uma empresa?", a: "Os custos variam conforme a natureza jurídica, o porte da empresa e as taxas do estado. Na AtendCon, analisamos o seu perfil para garantir o melhor enquadramento tributário, minimizando os custos iniciais." },
   { q: "Vocês atendem empresas de outras cidades?", a: "Sim! Nosso atendimento é digital e otimizado. Atendemos clientes de diversas regiões com a mesma agilidade e proximidade de um escritório físico, através da nossa plataforma e WhatsApp." },
-  { q: "Atendem construção civil?", a: "Sim, somos especialistas em Construção Civil e Incorporação Imobiliária. Oferecemos suporte completo para construtoras, loteamentos, regularização de obras e processos junto à Caixa." },
+  { q: "Atendem serviços veterinários?", a: "Sim, somos especialistas em Serviços Veterinários. Oferecemos suporte completo para clínicas veterinárias, pet shops e hospitais veterinários." },
   { q: "Fazem regularização fiscal?", a: "Com certeza. Fazemos uma auditoria completa da situação da sua empresa, identificamos pendências e criamos um plano de ação para regularizar tudo perante a Receita Federal, Estadual e Municipal." },
   { q: "Trabalham com MEI?", a: "Sim, oferecemos assessoria para Microempreendedores Individuais (MEI), ajudando na abertura, declaração anual, emissão de guias e, futuramente, na transição para Microempresa (ME) quando o negócio crescer." }
 ];
@@ -358,7 +358,7 @@ const AtendconSPA = () => {
                         "Prestação de Serviços",
                         "Comércio / Varejo",
                         "Profissional Liberal",
-                        "Construção Civil / Engenharia",
+                        "Serviços Veterinários / Clínicas",
                         "Outros"
                       ].map((option, idx) => (
                         <button 
@@ -426,8 +426,8 @@ const AtendconSPA = () => {
             {[
               "Atendimento Humanizado",
               "Resposta Rápida",
-              "Especialistas em Construção Civil",
-              "Incorporação Imobiliária",
+              "Especialistas em Serviços Veterinários",
+              "Clínicas e Hospitais Veterinários",
               "Regularização Fiscal",
               "Assessoria Empresarial Completa"
             ].map((item, i) => (
@@ -457,10 +457,10 @@ const AtendconSPA = () => {
                 ⭐ Expertise de Nicho
               </div>
               <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
-                Especialistas em <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Construção Civil</span> e Incorporação
+                Especialistas em <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Serviços Veterinários</span>
               </h3>
               <p className="text-slate-300 text-lg mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Temos o conhecimento técnico profundo que diferencia a AtendCon da maioria das contabilidades tradicionais. Atendimento completo para o setor imobiliário.
+                Temos o conhecimento técnico profundo que diferencia a AtendCon da maioria das contabilidades tradicionais. Atendimento completo para clínicas e hospitais veterinários.
               </p>
               <button onClick={openTriageModal} className="inline-block bg-yellow-500 text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-yellow-400 transition-colors shadow-lg">
                 Falar com Especialista do Setor
@@ -470,12 +470,10 @@ const AtendconSPA = () => {
             <div className="flex-1 relative z-10 w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
-                  "Construtoras",
-                  "Incorporadoras",
-                  "Loteamentos",
-                  "Desmembramentos",
-                  "Regularizações imobiliárias",
-                  "Processos junto à Caixa"
+                  "Clínicas Veterinárias",
+                  "Hospitais Veterinários",
+                  "Pet Shops e Estética Animal",
+                  "Profissionais Autônomos"
                 ].map((item, i) => (
                   <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 px-5 py-4 rounded-xl flex items-center gap-3 text-white font-medium">
                     <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
