@@ -887,7 +887,7 @@ const AtendconSPA = () => {
       </section>
 
       {/* 11. FOOTER */}
-      <footer className="bg-slate-900 pt-16 md:pt-24 pb-6 border-t border-slate-800 relative z-20">
+      <footer className="bg-slate-900 text-slate-400 pt-16 md:pt-24 pb-6 border-t border-slate-800 relative z-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 md:pb-16">
             
@@ -960,10 +960,7 @@ const AtendconSPA = () => {
           
           <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-wide text-slate-500">
             <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
-            <button onClick={openTriageModal} className="flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-900 px-4 py-2.5 rounded-xl font-bold shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 w-full md:w-auto">
-              <FaWhatsapp size={20} />
-              Fale com nosso time
-            </button>
+
             <div className="bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-slate-400 shadow-inner">
               CNPJ: 12.345.678/0001-90
             </div>
