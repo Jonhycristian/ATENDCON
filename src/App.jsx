@@ -432,8 +432,8 @@ const AtendconSPA = () => {
 
       {/* 6. FAQ */}
       <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src="/fundo02.png" alt="Background FAQ" className="w-full h-full object-cover opacity-[0.03]" />
+        <div className="absolute inset-0 z-0 opacity-20 mix-blend-multiply">
+          <img src="/fundo02.png" alt="Background FAQ" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 font-bold text-xs mb-6 mx-auto">
