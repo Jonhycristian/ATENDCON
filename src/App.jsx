@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring, useMotionValue, useTransform, animate } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useSpring, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { 
   Menu, X, TrendingUp, TrendingDown, Calculator, Users, Briefcase, 
   Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, DollarSign, Activity
@@ -35,13 +35,16 @@ const AtendconSPA = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const faqRef = useRef(null);
+  const isFaqInView = useInView(faqRef, { margin: "-200px" });
+
   useEffect(() => {
-    if (isFaqHovered) return;
+    if (!isFaqInView) return;
     const interval = setInterval(() => {
-      setActiveFaq((prev) => (prev + 1) % 3);
+      setActiveFaq((prev) => (prev !== null ? (prev + 1) % 3 : 0));
     }, 5000);
     return () => clearInterval(interval);
-  }, [isFaqHovered]);
+  }, [isFaqInView]);
 
   // Barra de progresso de scroll
   const { scrollYProgress } = useScroll();
@@ -431,7 +434,7 @@ const AtendconSPA = () => {
       </section>
 
       {/* 6. FAQ */}
-      <section id="faq" className="py-24 bg-[#020617] text-white relative overflow-hidden">
+      <section id="faq" ref={faqRef} className="py-24 bg-[#020617] text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20 mix-blend-screen">
           <img src="/fundo02.png" alt="Background FAQ" className="w-full h-full object-cover" />
         </div>
