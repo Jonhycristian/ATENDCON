@@ -37,12 +37,29 @@ const AtendconSPA = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const testimonialsRef = useRef(null);
+  const [isTestimonialsPaused, setIsTestimonialsPaused] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isTestimonialsPaused) return;
+    const interval = setInterval(() => {
+      if (testimonialsRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = testimonialsRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 20) {
+          testimonialsRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          testimonialsRef.current.scrollBy({ left: 340, behavior: 'smooth' });
+        }
+      }
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isTestimonialsPaused]);
 
   const faqRef = useRef(null);
   const isFaqInView = useInView(faqRef, { margin: "-200px" });
@@ -664,6 +681,11 @@ const AtendconSPA = () => {
           <div className="absolute top-0 right-0 w-8 md:w-32 h-full bg-gradient-to-l from-[#0b1120] to-transparent z-20 pointer-events-none"></div>
 
           <div 
+            ref={testimonialsRef}
+            onMouseEnter={() => setIsTestimonialsPaused(true)}
+            onMouseLeave={() => setIsTestimonialsPaused(false)}
+            onTouchStart={() => setIsTestimonialsPaused(true)}
+            onTouchEnd={() => setIsTestimonialsPaused(false)}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-12 md:px-32 scroll-smooth [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
@@ -812,73 +834,84 @@ const AtendconSPA = () => {
       </section>
 
       {/* 9. FOOTER */}
-      <footer className="bg-[#020617] text-slate-400 py-16 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <footer className="bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-slate-800/50 relative overflow-hidden">
+        {/* Glow Effects */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            {/* Logo & Sobre */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="mb-6 bg-white/5 p-4 rounded-2xl border border-white/10 shadow-xl inline-block backdrop-blur-sm">
+                <img src="/logo02.png" alt="Atendcon Logo" className="h-16 w-auto object-contain" />
+              </div>
+              <p className="text-sm text-slate-400 leading-relaxed max-w-xs font-medium">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
+            </div>
+
+            {/* Links Rápidos */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>Links Rápidos</h4>
+              <ul className="flex flex-col gap-3 text-sm font-medium">
+                <li><a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 transition flex items-center gap-2"><ArrowRight size={14}/> Área do Cliente</a></li>
+                <li><a href="#servicos" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Serviços</a></li>
+                <li><a href="#metodo" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Nosso Método</a></li>
+                <li><a href="#sobre" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Quem Somos</a></li>
+              </ul>
+            </div>
+
+            {/* Contato */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>Contato</h4>
+              <ul className="space-y-4 text-sm text-slate-300 font-medium">
+                <li className="flex items-center gap-3"><FaWhatsapp size={18} className="text-emerald-400 shrink-0" /> (31) 98385-8280</li>
+                <li className="flex items-center gap-3"><Phone size={18} className="text-blue-400 shrink-0" /> (31) 97500-4001</li>
+                <li className="flex items-center gap-3"><Mail size={18} className="text-blue-400 shrink-0" /> Comercial@atendcon.com.br</li>
+                <li className="flex items-center gap-3"><Mail size={18} className="text-blue-400 shrink-0" /> Operacional@atendcon.com.br</li>
+                <li className="flex items-start gap-3"><MapPin size={18} className="text-blue-400 shrink-0 mt-0.5" /> <span>Avenida Cristiano Machado 640<br/>sala 1507<br/>Sagrada Familia - BH<br/>CEP 31030-514</span></li>
+                <li className="flex items-center gap-3"><Clock size={18} className="text-blue-400 shrink-0" /> Seg a Sex: 08:00 às 18:00</li>
+              </ul>
+            </div>
+
+            {/* Apps & Redes */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+              <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>Nossos Apps</h4>
+              <div className="flex flex-col gap-3 w-full max-w-[200px]">
+                <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-full">
+                  <FaGooglePlay size={20} className="text-emerald-400 shrink-0" />
+                  <div className="text-left leading-tight">
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold mb-0.5">Disponível no</div>
+                    <div className="text-sm font-bold">Google Play</div>
+                  </div>
+                </a>
+                <a href="#" className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-xl transition-all text-white shadow-lg w-full">
+                  <FaApple size={24} className="text-slate-200 shrink-0" />
+                  <div className="text-left leading-tight">
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold mb-0.5">Baixar na</div>
+                    <div className="text-sm font-bold">App Store</div>
+                  </div>
+                </a>
+              </div>
+
+              <h4 className="text-white font-bold text-lg mt-8 mb-4 flex items-center gap-2"><div className="w-1.5 h-1.5 bg-pink-500 rounded-full"></div>Redes e Avaliações</h4>
+              <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
+                  <FaInstagram size={20} />
+                </a>
+                <a href="#" target="_blank" rel="noreferrer" className="px-4 h-10 rounded-full bg-white text-slate-900 flex items-center gap-2 hover:scale-105 transition-transform shadow-lg font-bold text-xs">
+                  <span className="text-yellow-500 text-lg leading-none -mt-1">★</span> Avalie no Google
+                </a>
+              </div>
+            </div>
+          </div>
           
-          {/* Logo & Sobre */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <div className="mb-6">
-              <img src="/logo02.png" alt="Atendcon Logo" className="h-24 w-auto object-contain" />
-            </div>
-            <p className="text-sm">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
-          </div>
-
-          {/* Links Rápidos */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <h4 className="text-white font-bold mb-6">Links Rápidos</h4>
-            <div className="flex flex-col gap-3 text-sm">
-              <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-400 font-bold hover:text-white transition">Área do Cliente</a>
-              <a href="#servicos" className="hover:text-white transition">Serviços</a>
-              <a href="#metodo" className="hover:text-white transition">Nosso Método</a>
-              <a href="#sobre" className="hover:text-white transition">Quem Somos</a>
+          <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-wide text-slate-500">
+            <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
+            <div className="bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-slate-400 shadow-inner">
+              CNPJ: 12.345.678/0001-90
             </div>
           </div>
-
-          {/* Contato */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <h4 className="text-white font-bold mb-6">Contato</h4>
-            <div className="space-y-4 text-sm">
-              <p className="flex items-center gap-3"><FaWhatsapp size={18} className="text-blue-500 shrink-0" /> (31) 98385-8280</p>
-              <p className="flex items-center gap-3"><Phone size={18} className="text-blue-500 shrink-0" /> (31) 97500-4001</p>
-              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 shrink-0" /> Comercial@atendcon.com.br</p>
-              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 shrink-0" /> Operacional@atendcon.com.br</p>
-              <p className="flex items-start gap-3"><MapPin size={18} className="text-blue-500 shrink-0 mt-0.5" /> <span>Avenida Cristiano Machado 640<br/>sala 1507<br/>Sagrada Familia - BH<br/>CEP 31030-514</span></p>
-              <p className="flex items-center gap-3"><Clock size={18} className="text-blue-500 shrink-0" /> Seg a Sex: 08:00 às 18:00</p>
-            </div>
-          </div>
-
-          {/* Apps & Redes */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <h4 className="text-white font-bold mb-6">Nossos Apps</h4>
-            <div className="flex flex-col gap-4">
-              <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 px-4 py-2 rounded-xl transition-all text-white shadow-lg hover:shadow-blue-500/50 w-full lg:max-w-[200px]">
-                <FaGooglePlay size={18} className="shrink-0" />
-                <div className="text-left leading-tight">
-                  <div className="text-[10px] text-emerald-100">Disponível no</div>
-                  <div className="text-sm font-bold">Google Play</div>
-                </div>
-              </a>
-              <a href="#" className="flex items-center justify-center gap-2 bg-gradient-to-r from-slate-700 to-slate-900 hover:scale-105 px-4 py-2 rounded-xl transition-all text-white shadow-lg hover:shadow-slate-500/50 w-full lg:max-w-[200px]">
-                <FaApple size={22} className="shrink-0" />
-                <div className="text-left leading-tight">
-                  <div className="text-[10px] text-slate-300">Baixar na</div>
-                  <div className="text-sm font-bold">App Store</div>
-                </div>
-              </a>
-              <h4 className="text-white font-bold mt-4 mb-2">Redes e Avaliações</h4>
-              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-105 transition-all shadow-lg hover:shadow-pink-500/50 font-bold text-xs w-full lg:max-w-[200px] justify-center">
-                <FaInstagram size={18} /> Instagram
-              </a>
-              <a href="#" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-full hover:scale-105 transition-all shadow-lg font-bold text-xs border border-slate-200 w-full lg:max-w-[200px] justify-center">
-                <span className="text-yellow-500 text-base leading-none -mt-0.5">★</span> Avalie no Google
-              </a>
-            </div>
-          </div>
-          
-        </div>
-        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-800 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center">
-          <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
-          <p className="mt-2 md:mt-0 text-slate-500">CNPJ: 12.345.678/0001-90</p>
         </div>
       </footer>
 
