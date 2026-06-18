@@ -209,10 +209,7 @@ const AtendconSPA = () => {
       {/* 2. HERO SECTION */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-6 md:pt-28 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <picture>
-            <source media="(max-width: 768px)" srcSet="/fundo01_mobile.png" />
-            <img src="/fundo01.png" alt="Office Background" className="w-full h-full object-cover" />
-          </picture>
+          <img src="/fundo-00.png" alt="Office Background" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
         </div>
         
@@ -661,7 +658,10 @@ const AtendconSPA = () => {
       {/* 7.5 AVALIAÇÕES / PROVA SOCIAL */}
       <section className="py-24 relative overflow-hidden border-t border-slate-800 text-white">
         <div className="absolute inset-0 z-0">
-          <img src="/fundo-00.png" alt="Background Avaliações" className="w-full h-full object-cover" />
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/fundo01_mobile.png" />
+            <img src="/fundo01.png" alt="Background Avaliações" className="w-full h-full object-cover" />
+          </picture>
           <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
         </div>
 
