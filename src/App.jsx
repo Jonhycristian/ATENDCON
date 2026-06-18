@@ -491,92 +491,13 @@ const AtendconSPA = () => {
             className="order-2 lg:order-1 flex justify-center lg:justify-start"
           >
             <div className="relative">
-              {/* Phone Mockup Frame */}
-              <div className="relative w-[280px] h-[580px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-900 shadow-2xl flex items-center justify-center overflow-hidden">
-                {/* Screen Content - Financial Dashboard Mockup */}
-                <div className="w-full h-full bg-slate-50 flex flex-col relative text-slate-900 overflow-hidden">
-                  {/* Status Bar */}
-                  <div className="absolute top-0 w-full h-7 bg-transparent z-20 flex justify-between px-6 py-2">
-                    <div className="w-4 h-4 bg-slate-900 rounded-full absolute top-1.5 left-1/2 -translate-x-1/2"></div>
-                  </div>
-                  {/* Header Profile */}
-                  <div className="bg-blue-600 pt-10 pb-16 px-5 flex flex-col text-white rounded-b-[2rem] shadow-sm">
-                    <div className="flex justify-between items-center mb-6">
-                      <div className="w-10 h-10 bg-white rounded-xl p-1.5 shadow-sm">
-                        <img src={logo1} alt="Icon" className="w-full h-full object-contain" />
-                      </div>
-                      <div className="bg-white/20 p-2 rounded-full backdrop-blur-sm"><Activity size={16} /></div>
-                    </div>
-                    <p className="text-xs text-blue-100 mb-1">Saldo em Caixa</p>
-                    <h3 className="font-black text-2xl">R$ 142.500,00</h3>
-                  </div>
-                  
-                  {/* Dashboard Widgets */}
-                  <div className="flex-1 px-5 -mt-8 space-y-4 overflow-y-auto custom-scrollbar pb-6">
-                    {/* Receitas e Despesas */}
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
-                        <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2">
-                          <TrendingUp size={14} />
-                        </div>
-                        <p className="text-[10px] text-slate-400 font-medium mb-0.5">Receitas</p>
-                        <p className="text-sm font-bold text-slate-800">R$ 85.2k</p>
-                      </div>
-                      <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
-                        <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mb-2">
-                          <TrendingDown size={14} />
-                        </div>
-                        <p className="text-[10px] text-slate-400 font-medium mb-0.5">Despesas</p>
-                        <p className="text-sm font-bold text-slate-800">R$ 32.4k</p>
-                      </div>
-                    </div>
-
-                    {/* Impostos a Pagar */}
-                    <div className="bg-white rounded-2xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100">
-                      <div className="flex justify-between items-center mb-3">
-                        <h4 className="text-xs font-bold text-slate-800">Próximos Vencimentos</h4>
-                        <span className="text-[10px] text-blue-600 font-bold">Ver todos</span>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-orange-50 rounded-lg flex items-center justify-center text-orange-500">
-                              <DollarSign size={14} />
-                            </div>
-                            <div>
-                              <p className="text-xs font-bold text-slate-800">DAS - Simples</p>
-                              <p className="text-[9px] text-slate-400">Vence em 2 dias</p>
-                            </div>
-                          </div>
-                          <span className="text-xs font-bold text-slate-800">R$ 1.250,00</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-500">
-                              <Briefcase size={14} />
-                            </div>
-                            <div>
-                              <p className="text-xs font-bold text-slate-800">GPS / INSS</p>
-                              <p className="text-[9px] text-slate-400">Vence hoje</p>
-                            </div>
-                          </div>
-                          <span className="text-xs font-bold text-slate-800">R$ 840,00</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating Badges Inside Phone */}
-                  <motion.div 
-                    initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.6 }}
-                    className="absolute bottom-4 left-4 right-4 bg-white p-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center gap-3 border border-slate-100 z-30"
-                  >
-                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0"><ShieldCheck size={16} /></div>
-                    <div>
-                      <div className="text-[10px] text-slate-500 font-medium">Conformidade</div>
-                      <div className="font-bold text-slate-900 text-xs">100% Segura</div>
-                    </div>
-                  </motion.div>
+              {/* Imagem do Aplicativo */}
+              <div className="relative w-[280px] md:w-[320px] mx-auto rounded-[2rem] shadow-2xl overflow-hidden border-[8px] border-slate-900 bg-slate-900">
+                <img src="/app.png" alt="Aplicativo ATENDCON" className="w-full h-auto object-cover rounded-2xl" />
+                
+                {/* Logo sobreposta */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                  <img src={logo1} alt="Logo ATENDCON" className="w-20 h-auto opacity-90" />
                 </div>
               </div>
             </div>
