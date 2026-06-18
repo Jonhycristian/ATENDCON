@@ -459,12 +459,11 @@ const AtendconSPA = () => {
             ].map((item, i) => (
               <motion.div 
                 key={i} 
-                initial={{ opacity: 0, x: -30, y: 30 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.7, type: "spring" }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:border-slate-700 transition-all shadow-2xl"
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:-translate-y-2 hover:border-slate-700 transition-all duration-300 shadow-2xl"
               >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" style={{ backgroundImage: `var(--tw-gradient-stops)` }}></div>
