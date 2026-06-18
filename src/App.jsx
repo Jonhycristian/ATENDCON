@@ -190,7 +190,7 @@ const AtendconSPA = () => {
       </header>
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-6 md:pt-20 md:pb-8 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-6 md:pt-28 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <picture>
             <source media="(max-width: 768px)" srcSet="/fundo01_mobile.png" />
@@ -208,7 +208,7 @@ const AtendconSPA = () => {
             }}
             className="w-full flex flex-col items-center md:items-start text-center md:text-left"
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm mt-8 md:mt-0">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm">
               Excelência e Tradição Contábil em BH
             </motion.div>
             <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 max-w-4xl">
