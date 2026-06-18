@@ -190,7 +190,7 @@ const AtendconSPA = () => {
       </header>
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[90dvh] flex flex-col justify-center pt-20 pb-4 md:pt-16 md:pb-6 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-6 md:pt-20 md:pb-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <picture>
             <source media="(max-width: 768px)" srcSet="/fundo01_mobile.png" />
@@ -208,31 +208,31 @@ const AtendconSPA = () => {
             }}
             className="w-full flex flex-col items-center md:items-start text-center md:text-left"
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-3 backdrop-blur-sm">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm mt-8 md:mt-0">
               Excelência e Tradição Contábil em BH
             </motion.div>
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-3 max-w-4xl">
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 max-w-4xl">
               Contabilidade estratégica para empresas que desejam crescer com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">segurança.</span>
             </motion.h1>
 
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-lg text-slate-300 mb-6 max-w-2xl leading-relaxed">
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
               Soluções completas em gestão contábil, fiscal e empresarial. Foque no crescimento do seu negócio e deixe a burocracia com nossos especialistas.
             </motion.p>
             
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start w-full sm:w-auto mb-8">
-              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="relative group overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3.5 rounded-full font-bold text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full sm:w-auto mb-10">
+              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="relative group overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
                 <FaWhatsapp size={20} className="relative z-10" />
                 <span className="relative z-10">Falar com Especialista</span>
               </a>
-              <a href="#servicos" className="bg-white/5 text-white border border-white/10 px-8 py-3.5 rounded-full font-semibold text-center hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md">
+              <a href="#servicos" className="bg-white/5 text-white border border-white/10 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md">
                 Conhecer Soluções
               </a>
             </motion.div>
 
             <motion.div 
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl"
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 w-full max-w-4xl"
             >
               {[
                 { label: "Avaliação no Google", value: 5, prefix: "⭐ ", suffix: ".0" },
@@ -240,7 +240,7 @@ const AtendconSPA = () => {
                 { label: "Processos Realizados", value: 5000, prefix: "+", suffix: "" },
                 { label: "Taxa de Retenção", value: 98, prefix: "", suffix: "%" }
               ].map((stat, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 p-3 rounded-2xl text-white cursor-default text-center flex flex-col justify-center items-center hover:bg-white/10 transition">
+                <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl text-white cursor-default text-center flex flex-col justify-center items-center hover:bg-white/10 transition">
                   <div className="text-xl md:text-3xl font-black text-blue-400 mb-1">
                     <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                   </div>
