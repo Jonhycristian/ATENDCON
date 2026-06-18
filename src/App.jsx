@@ -586,7 +586,7 @@ const AtendconSPA = () => {
                 <img src="/app.png" alt="Aplicativo ATENDCON" className="w-full h-auto object-cover rounded-2xl" />
                 
                 {/* Logo sobreposta */}
-                <div className="absolute top-14 left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                <div className="absolute top-11 left-1/2 -translate-x-1/2 pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
                   <img src={logo1} alt="Logo ATENDCON" className="w-20 h-auto opacity-90" />
                 </div>
               </div>
