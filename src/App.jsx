@@ -650,13 +650,14 @@ const AtendconSPA = () => {
       </section>
 
       {/* 9. CTA FINAL */}
-      <section className="py-24 bg-blue-600 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 mix-blend-overlay">
+      <section className="py-24 bg-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <img src="/fundo04.png" alt="Background" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-slate-900/60"></div>
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
-          <p className="text-xl text-blue-100 mb-10">Agende uma conversa e descubra como podemos alavancar o seu negócio.</p>
+          <p className="text-xl text-slate-200 mb-10">Agende uma conversa e descubra como podemos alavancar o seu negócio.</p>
           <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de iniciar meu diagnóstico gratuito e transformar a contabilidade da minha empresa.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
             Iniciar Diagnóstico Gratuito
           </a>
