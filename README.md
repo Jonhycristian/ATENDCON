@@ -8,10 +8,10 @@ Uma Landing Page de alta performance, moderna e responsiva desenvolvida para a *
 
 - **Design Premium & UI/UX:** Layout desenhado com paletas de cores sofisticadas (Glassmorphism e gradientes dark) para transmitir confiança e modernidade.
 - **Animações Fluidas:** Integração completa com **Framer Motion** para animações de entrada (fade-in, slide-up), contadores numéricos animados e micro-interações ao passar o mouse.
+- **Triagem Inteligente de Leads:** Modal multi-etapas ("balãozinho") que qualifica o cliente (Segmento de Atuação e Objetivo) antes do redirecionamento para o WhatsApp, enviando mensagens dinâmicas e contextuais.
 - **Carrossel de Depoimentos Inteligente:** Sistema de "Prova Social" com auto-scroll suave que pausa inteligentemente ao receber interação do usuário (hover/touch).
-- **100% Responsivo (Mobile-First):** Experiência de navegação perfeita em smartphones, tablets e desktops.
-- **Call-to-Action (CTA) Otimizados:** Integração direta com WhatsApp para agendamento de consultorias e atendimento rápido.
-- **Componentização React:** Arquitetura limpa utilizando React Hooks (`useState`, `useEffect`, `useRef`, `useInView`).
+- **100% Responsivo (Mobile-First):** Experiência de navegação perfeita em smartphones, tablets e desktops. Rodapé otimizado estruturalmente para leitura em dispositivos móveis.
+- **Componentização React:** Arquitetura limpa utilizando React Hooks (`useState`, `useEffect`, `useRef`, `useInView`, `AnimatePresence`).
 
 ## 🛠️ Tecnologias Utilizadas
 
