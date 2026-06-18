@@ -193,15 +193,15 @@ const AtendconSPA = () => {
           {isMobileMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl flex flex-col p-6 gap-4 font-medium"
+              className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl shadow-2xl rounded-b-3xl border-t border-slate-100 flex flex-col p-8 gap-5 font-medium z-50"
             >
-              <a href="#servicos" onClick={() => setIsMobileMenuOpen(false)}>Serviços</a>
-              <a href="#metodo" onClick={() => setIsMobileMenuOpen(false)}>Método</a>
-              <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)}>Quem Somos</a>
-              <a href="#faq" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
-              <a href="#app" onClick={() => setIsMobileMenuOpen(false)}>Nosso App</a>
-              <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 font-bold mt-2">Área do Cliente</a>
-              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} className="bg-blue-600 text-white text-center py-3 rounded-full mt-2">Falar com Especialista</a>
+              <a href="#servicos" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Serviços</a>
+              <a href="#metodo" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Método</a>
+              <a href="#sobre" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Quem Somos</a>
+              <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">FAQ</a>
+              <a href="#app" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Nosso App</a>
+              <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 hover:text-blue-700 transition flex items-center gap-3 font-bold mt-2">Área do Cliente</a>
+              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:scale-105 transition-transform text-white text-center py-4 rounded-full mt-2 font-bold shadow-lg shadow-blue-500/30">Falar com Especialista</a>
             </motion.div>
           )}
         </AnimatePresence>
@@ -859,6 +859,9 @@ const AtendconSPA = () => {
                 <li><a href="#servicos" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Serviços</a></li>
                 <li><a href="#metodo" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Nosso Método</a></li>
                 <li><a href="#sobre" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Quem Somos</a></li>
+                <li><a href="#faq" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> FAQ</a></li>
+                <li><a href="#app" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Nosso App</a></li>
+                <li><a href="#contato" className="hover:text-white transition flex items-center gap-2"><ArrowRight size={14}/> Contato</a></li>
               </ul>
             </div>
 
