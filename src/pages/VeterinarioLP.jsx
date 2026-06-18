@@ -233,14 +233,14 @@ const AtendconSPA = () => {
             className="w-full flex flex-col items-center md:items-start text-center md:text-left"
           >
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm">
-              Excelência e Tradição Contábil em BH
+              Contabilidade Especializada em Veterinária
             </motion.div>
             <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 max-w-4xl">
-              Contabilidade estratégica para empresas que desejam crescer com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">segurança.</span>
+              Contabilidade estratégica para clínicas veterinárias e pet shops crescerem com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">segurança.</span>
             </motion.h1>
 
             <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
-              Soluções completas em gestão contábil, fiscal e empresarial. Foque no crescimento do seu negócio e deixe a burocracia com nossos especialistas.
+              Soluções completas em gestão contábil, fiscal e empresarial para profissionais de medicina veterinária. Foque nos seus pacientes e deixe a burocracia com nossos especialistas.
             </motion.p>
             
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full sm:w-auto mb-10">
