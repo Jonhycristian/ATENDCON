@@ -701,13 +701,13 @@ const AtendconSPA = () => {
                     {review.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-800 text-sm">{review.name}</h4>
-                    <span className="text-xs text-slate-500">Cliente AtendCon</span>
+                    <h4 className="font-bold text-white text-sm">{review.name}</h4>
+                    <span className="text-xs text-blue-200">Cliente AtendCon</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
