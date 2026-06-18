@@ -206,25 +206,47 @@ const AtendconSPA = () => {
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
             }}
-            className="max-w-3xl text-center md:text-left flex flex-col items-center md:items-start mx-auto md:mx-0"
+            className="w-full flex flex-col items-center md:items-start text-center md:text-left"
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm">
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm mt-8 md:mt-0">
               Excelência e Tradição Contábil em BH
             </motion.div>
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4 max-w-4xl">
               Contabilidade estratégica para empresas que desejam crescer com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">segurança.</span>
             </motion.h1>
 
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
-              A AtendCon oferece soluções completas em contabilidade, fiscal, departamento pessoal e consultoria empresarial, ajudando empresários a manterem suas obrigações em dia e tomarem decisões mais seguras.
+            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
+              Soluções completas em gestão contábil, fiscal e empresarial. Foque no crescimento do seu negócio e deixe a burocracia com nossos especialistas.
             </motion.p>
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start w-full sm:w-auto">
-              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-6 py-3.5 md:px-8 md:py-4 rounded-full font-bold text-center hover:bg-blue-700 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 text-base md:text-lg">
-                👉 Falar com um Especialista
+            
+            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full sm:w-auto mb-10">
+              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="relative group overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+                <FaWhatsapp size={20} className="relative z-10" />
+                <span className="relative z-10">Falar com Especialista</span>
               </a>
-              <a href="#servicos" className="bg-white/10 text-white border border-white/20 px-6 py-3.5 md:px-8 md:py-4 rounded-full font-semibold text-center hover:bg-white/20 transition backdrop-blur-sm">
+              <a href="#servicos" className="bg-white/5 text-white border border-white/10 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md">
                 Conhecer Soluções
               </a>
+            </motion.div>
+
+            <motion.div 
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 w-full max-w-4xl"
+            >
+              {[
+                { label: "Avaliação no Google", value: 5, prefix: "⭐ ", suffix: ".0" },
+                { label: "Empresas Atendidas", value: 300, prefix: "+", suffix: "" },
+                { label: "Processos Realizados", value: 5000, prefix: "+", suffix: "" },
+                { label: "Taxa de Retenção", value: 98, prefix: "", suffix: "%" }
+              ].map((stat, i) => (
+                <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl text-white cursor-default text-center flex flex-col justify-center items-center hover:bg-white/10 transition">
+                  <div className="text-xl md:text-3xl font-black text-blue-400 mb-1">
+                    <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-[10px] md:text-xs text-slate-300 font-medium">{stat.label}</div>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -618,43 +640,6 @@ const AtendconSPA = () => {
         </div>
       </section>
 
-      {/* 7.4 DADOS E RESULTADOS */}
-      <section className="py-20 bg-slate-900 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full"
-          >
-            <h3 className="text-slate-400 font-semibold mb-8 text-center text-sm uppercase tracking-widest">Confiança construída com resultados</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {[
-                { label: "Nota máxima no Google", value: 5, prefix: "⭐ ", suffix: ".0" },
-                { label: "Empresas atendidas", value: 300, prefix: "+", suffix: "" },
-                { label: "Processos realizados", value: 5000, prefix: "+", suffix: "" },
-                { label: "Retenção de Clientes", value: 98, prefix: "", suffix: "%" }
-              ].map((stat, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5, type: "spring" }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-3xl text-white cursor-default text-center flex flex-col justify-center hover:bg-white/10 transition-colors"
-                >
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-black text-blue-400 mb-2">
-                    <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-sm text-slate-300 leading-tight">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* 7.5 AVALIAÇÕES / PROVA SOCIAL */}
       <section className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200/60">
