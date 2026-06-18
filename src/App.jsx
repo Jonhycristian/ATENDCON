@@ -149,7 +149,7 @@ const AtendconSPA = () => {
           </nav>
 
           <div className="hidden md:flex items-center gap-6 text-sm">
-            <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-slate-900 hover:text-blue-600 font-bold transition-colors">
+            <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-600 border border-blue-600 px-5 py-2 rounded-full hover:bg-blue-50 font-bold transition-all shadow-sm">
               Área do Cliente
             </a>
             <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
@@ -673,16 +673,16 @@ const AtendconSPA = () => {
             </div>
             <p className="text-sm">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
           </div>
-          <div>
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
             <h4 className="text-white font-bold mb-6">Contato</h4>
-            <div className="space-y-4 text-sm">
-              <p className="flex items-center gap-3"><MapPin size={18} className="text-blue-500 flex-shrink-0" /> Avenida Cristiano Machado 640 sala 1507<br/>Sagrada Familia - BH- CEP 31030-514</p>
+            <div className="space-y-4 text-sm flex flex-col items-center md:items-start">
+              <p className="flex items-center gap-3 text-left"><MapPin size={18} className="text-blue-500 flex-shrink-0" /> <span>Avenida Cristiano Machado 640 sala 1507<br/>Sagrada Familia - BH- CEP 31030-514</span></p>
               <p className="flex items-center gap-3"><FaWhatsapp size={18} className="text-blue-500 flex-shrink-0" /> (31) 98385-8280</p>
               <p className="flex items-center gap-3"><Phone size={18} className="text-blue-500 flex-shrink-0" /> (31) 97500-4001</p>
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Comercial@atendcon.com.br</p>
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Operacional@atendcon.com.br</p>
             </div>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
               <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-110 transition-all shadow-lg hover:shadow-pink-500/50 shrink-0">
                 <FaInstagram size={20} />
               </a>
@@ -703,9 +703,9 @@ const AtendconSPA = () => {
               </a>
             </div>
           </div>
-          <div>
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
             <h4 className="text-white font-bold mb-6">Links Rápidos</h4>
-            <div className="flex flex-col gap-3 text-sm">
+            <div className="flex flex-col items-center md:items-start gap-3 text-sm">
               <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-400 font-bold hover:text-white transition">Área do Cliente</a>
               <a href="#servicos" className="hover:text-white transition">Serviços</a>
               <a href="#metodo" className="hover:text-white transition">Nosso Método</a>
