@@ -643,21 +643,26 @@ const AtendconSPA = () => {
 
 
       {/* 7.5 AVALIAÇÕES / PROVA SOCIAL */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200/60">
+      <section className="py-24 relative overflow-hidden border-t border-slate-800 text-white">
+        <div className="absolute inset-0 z-0">
+          <img src="/fundo-00.png" alt="Background Avaliações" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 font-bold text-xs mb-6 mx-auto">
-            <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 font-bold text-xs mb-6 mx-auto backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
             Prova Social
           </div>
-          <h2 className="text-4xl font-black text-slate-900 mb-4 leading-tight">
-            O que nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">clientes dizem</span>
+          <h2 className="text-4xl font-black text-white mb-4 leading-tight">
+            O que nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">clientes dizem</span>
           </h2>
         </div>
         
-        <div className="w-full overflow-hidden relative pb-12">
+        <div className="w-full overflow-hidden relative pb-12 z-10">
           {/* Fading edges for the marquee effect */}
-          <div className="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-slate-50 to-transparent z-20 pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-slate-50 to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-[#0b1120] to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-[#0b1120] to-transparent z-20 pointer-events-none"></div>
 
           <motion.div 
             animate={{ x: ["0%", "-50%"] }}
