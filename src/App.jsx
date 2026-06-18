@@ -679,11 +679,11 @@ const AtendconSPA = () => {
           <div className="text-center md:text-left flex flex-col items-center md:items-start">
             <h4 className="text-white font-bold mb-6">Contato</h4>
             <div className="space-y-4 text-sm flex flex-col items-center md:items-start">
-              <p className="flex items-center gap-3 text-left"><MapPin size={18} className="text-blue-500 flex-shrink-0" /> <span>Avenida Cristiano Machado 640 sala 1507<br/>Sagrada Familia - BH- CEP 31030-514</span></p>
               <p className="flex items-center gap-3"><FaWhatsapp size={18} className="text-blue-500 flex-shrink-0" /> (31) 98385-8280</p>
               <p className="flex items-center gap-3"><Phone size={18} className="text-blue-500 flex-shrink-0" /> (31) 97500-4001</p>
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Comercial@atendcon.com.br</p>
               <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Operacional@atendcon.com.br</p>
+              <p className="flex items-center gap-3 text-left"><MapPin size={18} className="text-blue-500 flex-shrink-0" /> <span>Avenida Cristiano Machado 640 sala 1507<br/>Sagrada Familia - BH- CEP 31030-514</span></p>
             </div>
             <div className="mt-8 flex flex-col items-center md:items-start gap-4">
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
