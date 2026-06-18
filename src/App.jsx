@@ -459,25 +459,25 @@ const AtendconSPA = () => {
             ].map((item, i) => (
               <motion.div 
                 key={i} 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -30, y: 30 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.2, duration: 0.6 }}
-                whileHover={{ y: -10 }}
+                transition={{ delay: i * 0.15, duration: 0.7, type: "spring" }}
+                whileHover={{ y: -10, scale: 1.02 }}
                 className="bg-slate-900/50 backdrop-blur-xl border border-slate-800 p-8 rounded-3xl relative overflow-hidden group hover:border-slate-700 transition-all shadow-2xl"
               >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" style={{ backgroundImage: `var(--tw-gradient-stops)` }}></div>
                 
-                <div className={`w-14 h-14 rounded-2xl mb-6 flex items-center justify-center bg-gradient-to-br ${item.color} shadow-lg text-white font-black text-xl`}>
+                <div className={`w-14 h-14 rounded-2xl mb-6 flex items-center justify-center bg-gradient-to-br ${item.color} shadow-lg text-white font-black text-xl relative z-10`}>
                   {item.step}
                 </div>
                 
-                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{item.title}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors relative z-10">{item.title}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed relative z-10">{item.desc}</p>
                 
                 {/* Background large number */}
-                <span className="text-8xl font-black text-white/5 absolute -bottom-4 -right-4 group-hover:text-white/10 transition-colors">{item.step}</span>
+                <span aria-hidden="true" className="text-[120px] leading-none font-black text-white/5 absolute -bottom-6 -right-2 group-hover:text-white/10 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 select-none pointer-events-none">{item.step}</span>
               </motion.div>
             ))}
           </div>
@@ -808,60 +808,71 @@ const AtendconSPA = () => {
       </section>
 
       {/* 9. FOOTER */}
-      <footer className="bg-[#020617] text-slate-400 py-16">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          <div className="text-center md:text-left flex flex-col items-center md:items-start">
+      <footer className="bg-[#020617] text-slate-400 py-16 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          
+          {/* Logo & Sobre */}
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <div className="mb-6">
-              <img src="/logo02.png" alt="Atendcon Logo" className="h-24 md:h-32 w-auto object-contain" />
+              <img src="/logo02.png" alt="Atendcon Logo" className="h-24 w-auto object-contain" />
             </div>
             <p className="text-sm">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
           </div>
-          <div className="text-center md:text-left flex flex-col items-center md:items-start">
-            <h4 className="text-white font-bold mb-6">Contato</h4>
-            <div className="space-y-4 text-sm flex flex-col items-center md:items-start">
-              <p className="flex items-center gap-3"><FaWhatsapp size={18} className="text-blue-500 flex-shrink-0" /> (31) 98385-8280</p>
-              <p className="flex items-center gap-3"><Phone size={18} className="text-blue-500 flex-shrink-0" /> (31) 97500-4001</p>
-              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Comercial@atendcon.com.br</p>
-              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 flex-shrink-0" /> Operacional@atendcon.com.br</p>
-              <p className="flex items-center gap-3 text-left"><MapPin size={18} className="text-blue-500 flex-shrink-0" /> <span>Avenida Cristiano Machado 640 sala 1507<br/>Sagrada Familia - BH- CEP 31030-514</span></p>
-              <p className="flex items-center gap-3"><Clock size={18} className="text-blue-500 flex-shrink-0" /> Seg a Sex: 08:00 às 18:00</p>
-            </div>
-            <div className="mt-8 flex flex-col items-center md:items-start gap-4">
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-blue-500/50 shrink-0">
-                  <FaGooglePlay size={16} className="text-white" />
-                  <div className="text-left">
-                    <div className="text-[9px] leading-none text-emerald-100">Disponível no</div>
-                    <div className="text-xs font-bold leading-tight">Google Play</div>
-                  </div>
-                </a>
-                <a href="#" className="flex items-center gap-2 bg-gradient-to-r from-slate-700 to-slate-900 hover:scale-105 border-0 px-3 py-1.5 rounded-xl transition-all text-white shadow-lg hover:shadow-slate-500/50 shrink-0">
-                  <FaApple size={20} className="text-white" />
-                  <div className="text-left">
-                    <div className="text-[9px] leading-none text-slate-300">Baixar na</div>
-                    <div className="text-xs font-bold leading-tight">App Store</div>
-                  </div>
-                </a>
-              </div>
-              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-105 transition-all shadow-lg hover:shadow-pink-500/50 font-bold text-sm w-full md:w-auto">
-                <FaInstagram size={20} /> Siga nosso Instagram
-              </a>
-              <a href="#" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-full hover:scale-105 transition-all shadow-lg font-bold text-sm border border-slate-200 w-full md:w-auto">
-                <span className="text-yellow-500 text-lg leading-none -mt-1">★</span> Avalie-nos no Google
-              </a>
-            </div>
-          </div>
-          <div className="text-center md:text-left flex flex-col items-center md:items-start">
+
+          {/* Links Rápidos */}
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <h4 className="text-white font-bold mb-6">Links Rápidos</h4>
-            <div className="flex flex-col items-center md:items-start gap-3 text-sm">
+            <div className="flex flex-col gap-3 text-sm">
               <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-400 font-bold hover:text-white transition">Área do Cliente</a>
               <a href="#servicos" className="hover:text-white transition">Serviços</a>
               <a href="#metodo" className="hover:text-white transition">Nosso Método</a>
               <a href="#sobre" className="hover:text-white transition">Quem Somos</a>
             </div>
           </div>
+
+          {/* Contato */}
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <h4 className="text-white font-bold mb-6">Contato</h4>
+            <div className="space-y-4 text-sm">
+              <p className="flex items-center gap-3"><FaWhatsapp size={18} className="text-blue-500 shrink-0" /> (31) 98385-8280</p>
+              <p className="flex items-center gap-3"><Phone size={18} className="text-blue-500 shrink-0" /> (31) 97500-4001</p>
+              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 shrink-0" /> Comercial@atendcon.com.br</p>
+              <p className="flex items-center gap-3"><Mail size={18} className="text-blue-500 shrink-0" /> Operacional@atendcon.com.br</p>
+              <p className="flex items-start gap-3"><MapPin size={18} className="text-blue-500 shrink-0 mt-0.5" /> <span>Avenida Cristiano Machado 640<br/>sala 1507<br/>Sagrada Familia - BH<br/>CEP 31030-514</span></p>
+              <p className="flex items-center gap-3"><Clock size={18} className="text-blue-500 shrink-0" /> Seg a Sex: 08:00 às 18:00</p>
+            </div>
+          </div>
+
+          {/* Apps & Redes */}
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+            <h4 className="text-white font-bold mb-6">Nossos Apps</h4>
+            <div className="flex flex-col gap-4">
+              <a href="https://play.google.com/store/apps/details?id=com.atendconcontabilidade" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 hover:scale-105 px-4 py-2 rounded-xl transition-all text-white shadow-lg hover:shadow-blue-500/50 w-full lg:max-w-[200px]">
+                <FaGooglePlay size={18} className="shrink-0" />
+                <div className="text-left leading-tight">
+                  <div className="text-[10px] text-emerald-100">Disponível no</div>
+                  <div className="text-sm font-bold">Google Play</div>
+                </div>
+              </a>
+              <a href="#" className="flex items-center justify-center gap-2 bg-gradient-to-r from-slate-700 to-slate-900 hover:scale-105 px-4 py-2 rounded-xl transition-all text-white shadow-lg hover:shadow-slate-500/50 w-full lg:max-w-[200px]">
+                <FaApple size={22} className="shrink-0" />
+                <div className="text-left leading-tight">
+                  <div className="text-[10px] text-slate-300">Baixar na</div>
+                  <div className="text-sm font-bold">App Store</div>
+                </div>
+              </a>
+              <h4 className="text-white font-bold mt-4 mb-2">Redes e Avaliações</h4>
+              <a href="https://www.instagram.com/atendconcontabilidade?utm_source=qr" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:scale-105 transition-all shadow-lg hover:shadow-pink-500/50 font-bold text-xs w-full lg:max-w-[200px] justify-center">
+                <FaInstagram size={18} /> Instagram
+              </a>
+              <a href="#" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-full hover:scale-105 transition-all shadow-lg font-bold text-xs border border-slate-200 w-full lg:max-w-[200px] justify-center">
+                <span className="text-yellow-500 text-base leading-none -mt-0.5">★</span> Avalie no Google
+              </a>
+            </div>
+          </div>
+          
         </div>
-        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-800 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center">
           <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
           <p className="mt-2 md:mt-0 text-slate-500">CNPJ: 12.345.678/0001-90</p>
         </div>
