@@ -664,10 +664,9 @@ const AtendconSPA = () => {
       {/* 9. FOOTER */}
       <footer className="bg-[#020617] text-slate-400 py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          <div>
-            <div className="flex items-center gap-1 mb-6">
-              <img src={logo1} alt="Atendcon Icon" className="h-10 md:h-12 w-auto object-contain" />
-              <img src={logo2} alt="Atendcon Text" className="h-8 md:h-10 w-auto object-contain translate-y-1" />
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
+            <div className="mb-6">
+              <img src="/logo02.png" alt="Atendcon Logo" className="h-12 md:h-16 w-auto object-contain" />
             </div>
             <p className="text-sm">Atenção que sua empresa precisa. Especialistas em gestão fiscal, contábil e departamento pessoal em Belo Horizonte.</p>
           </div>
