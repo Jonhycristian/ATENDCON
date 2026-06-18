@@ -35,11 +35,20 @@ const AtendconSPA = () => {
   const [activeFaq, setActiveFaq] = useState(0);
   const [isFaqHovered, setIsFaqHovered] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const [isTriageModalOpen, setIsTriageModalOpen] = useState(false);
+  const [triageStep, setTriageStep] = useState(1);
+  const [triageData, setTriageData] = useState({ segment: '', goal: '' });
   const [isScrolled, setIsScrolled] = useState(false);
   const testimonialsRef = useRef(null);
   const isTestimonialsInView = useInView(testimonialsRef, { margin: "100px" });
   const [isTestimonialsPaused, setIsTestimonialsPaused] = useState(false);
+
+  const openTriageModal = (e) => {
+    if (e) e.preventDefault();
+    setTriageStep(1);
+    setTriageData({ segment: '', goal: '' });
+    setIsTriageModalOpen(true);
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -178,9 +187,9 @@ const AtendconSPA = () => {
             <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" className="text-blue-600 border border-blue-600 px-5 py-2 rounded-full hover:bg-blue-50 font-bold transition-all shadow-sm">
               Área do Cliente
             </a>
-            <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
+            <button onClick={openTriageModal} className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 font-semibold">
               Falar com Especialista
-            </a>
+            </button>
           </div>
 
           <button className="md:hidden text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -201,7 +210,7 @@ const AtendconSPA = () => {
               <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">FAQ</a>
               <a href="#app" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-700 hover:text-blue-600 transition flex items-center gap-3 border-b border-slate-100 pb-3">Nosso App</a>
               <a href="https://vip.acessorias.com/atendconcontabilidade" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="text-blue-600 hover:text-blue-700 transition flex items-center gap-3 font-bold mt-2">Área do Cliente</a>
-              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.") + "&type=phone_number&app_absent=0"}`} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:scale-105 transition-transform text-white text-center py-4 rounded-full mt-2 font-bold shadow-lg shadow-blue-500/30">Falar com Especialista</a>
+              <button onClick={(e) => { setIsMobileMenuOpen(false); openTriageModal(e); }} className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:scale-105 transition-transform text-white text-center py-4 rounded-full mt-2 font-bold shadow-lg shadow-blue-500/30 w-full">Falar com Especialista</button>
             </motion.div>
           )}
         </AnimatePresence>
@@ -235,11 +244,11 @@ const AtendconSPA = () => {
             </motion.p>
             
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full sm:w-auto mb-10">
-              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de agendar uma consultoria e falar com um especialista.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="relative group overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105">
+              <button onClick={openTriageModal} className="relative group overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
                 <FaWhatsapp size={20} className="relative z-10" />
                 <span className="relative z-10">Falar com Especialista</span>
-              </a>
+              </button>
               <a href="#servicos" className="bg-white/5 text-white border border-white/10 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md">
                 Conhecer Soluções
               </a>
@@ -318,9 +327,9 @@ const AtendconSPA = () => {
                     ))}
                   </ul>
                 )}
-                <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent(`Olá! Acessei o site da Atendcon e gostaria de saber mais detalhes sobre o serviço de ${selectedService.title}.`) + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="block w-full bg-blue-600 text-white text-center py-3 rounded-full font-semibold hover:bg-blue-700">
+                <button onClick={() => { setSelectedService(null); openTriageModal(); }} className="block w-full bg-blue-600 text-white text-center py-3 rounded-full font-semibold hover:bg-blue-700">
                   Solicitar este serviço
-                </a>
+                </button>
               </motion.div>
             </div>
           )}
@@ -328,41 +337,75 @@ const AtendconSPA = () => {
 
         {/* Modal de Triagem de Agendamento */}
         <AnimatePresence>
-          {isConsultationModalOpen && (
+          {isTriageModalOpen && (
             <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 className="bg-white p-6 md:p-8 rounded-3xl max-w-md w-full relative max-h-[90vh] overflow-y-auto custom-scrollbar"
               >
-                <button onClick={() => setIsConsultationModalOpen(false)} className="absolute top-6 right-6 text-slate-400 hover:text-slate-900"><X /></button>
-                <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-6">
+                <button onClick={() => setIsTriageModalOpen(false)} className="absolute top-6 right-6 text-slate-400 hover:text-slate-900"><X /></button>
+                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 shadow-inner">
                   <FaWhatsapp size={24} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-slate-900">Como podemos ajudar?</h3>
-                <p className="text-slate-600 mb-6 text-sm">Selecione o assunto principal para direcionarmos o seu atendimento da melhor forma possível.</p>
                 
-                <div className="space-y-3">
-                  {[
-                    "Abertura de Empresa",
-                    "Gestão Contábil",
-                    "Gestão Fiscal",
-                    "Departamento Pessoal",
-                    "Legalização e Pessoa Física",
-                    "Auditoria Eletrônica",
-                    "Outros Assuntos"
-                  ].map((option, idx) => (
-                    <a 
-                      key={idx}
-                      href={`${WHATSAPP_LINK}&text=${encodeURIComponent(`Olá! Gostaria de agendar uma consultoria e saber mais sobre: *${option}*.`) + "&type=phone_number&app_absent=0"}`}
-                      target="_blank" rel="noreferrer"
-                      onClick={() => setIsConsultationModalOpen(false)}
-                      className="block w-full text-left px-5 py-3.5 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-700 font-medium text-slate-700 transition-all flex justify-between items-center group"
-                    >
-                      {option}
-                      <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </a>
-                  ))}
-                </div>
+                {triageStep === 1 ? (
+                  <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}>
+                    <h3 className="text-2xl font-bold mb-2 text-slate-900">Qual o seu segmento?</h3>
+                    <p className="text-slate-600 mb-6 text-sm">Para um atendimento mais rápido, selecione a sua área de atuação:</p>
+                    
+                    <div className="space-y-3">
+                      {[
+                        "Prestação de Serviços",
+                        "Comércio / Varejo",
+                        "Profissional Liberal",
+                        "Construção Civil / Engenharia",
+                        "Outros"
+                      ].map((option, idx) => (
+                        <button 
+                          key={idx}
+                          onClick={() => {
+                            setTriageData({ ...triageData, segment: option });
+                            setTriageStep(2);
+                          }}
+                          className="w-full text-left px-5 py-3.5 rounded-xl border border-slate-200 hover:border-blue-600 hover:bg-blue-50 hover:text-blue-700 font-medium text-slate-700 transition-all flex justify-between items-center group"
+                        >
+                          {option}
+                          <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                    <button onClick={() => setTriageStep(1)} className="text-xs text-blue-600 font-bold uppercase tracking-wider mb-2 flex items-center gap-1 hover:underline">
+                      &larr; Voltar
+                    </button>
+                    <h3 className="text-2xl font-bold mb-2 text-slate-900">O que você busca hoje?</h3>
+                    <p className="text-slate-600 mb-6 text-sm">Selecione o serviço para falarmos com o especialista certo:</p>
+                    
+                    <div className="space-y-3">
+                      {[
+                        "Trocar de Contador",
+                        "Abertura de Empresa",
+                        "Consultoria Especializada",
+                        "Regularização Fiscal"
+                      ].map((option, idx) => (
+                        <button 
+                          key={idx}
+                          onClick={() => {
+                            const texto = `Olá! Sou do segmento de *${triageData.segment}* e procuro ajuda com *${option}*.`;
+                            window.open(`${WHATSAPP_LINK}&text=${encodeURIComponent(texto)}&type=phone_number&app_absent=0`);
+                            setIsTriageModalOpen(false);
+                          }}
+                          className="block w-full text-left px-5 py-3.5 rounded-xl border border-slate-200 hover:border-green-600 hover:bg-green-50 hover:text-green-700 font-medium text-slate-700 transition-all flex justify-between items-center group"
+                        >
+                          {option}
+                          <FaWhatsapp size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
             </div>
           )}
@@ -419,9 +462,9 @@ const AtendconSPA = () => {
               <p className="text-slate-300 text-lg mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Temos o conhecimento técnico profundo que diferencia a AtendCon da maioria das contabilidades tradicionais. Atendimento completo para o setor imobiliário.
               </p>
-              <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Sou do setor de construção civil/incorporação e gostaria de saber como a AtendCon pode me ajudar.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="inline-block bg-yellow-500 text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-yellow-400 transition-colors shadow-lg">
+              <button onClick={openTriageModal} className="inline-block bg-yellow-500 text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-yellow-400 transition-colors shadow-lg">
                 Falar com Especialista do Setor
-              </a>
+              </button>
             </div>
             
             <div className="flex-1 relative z-10 w-full">
@@ -575,9 +618,9 @@ const AtendconSPA = () => {
           <p className="text-lg text-slate-400 mb-6">
             Não encontrou o que procurava? Fale diretamente com nossa equipe.
           </p>
-          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Estou no site e tenho algumas dúvidas específicas.")}&type=phone_number&app_absent=0`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg">
+          <button onClick={openTriageModal} className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg">
             <FaWhatsapp size={18}/> Chamar no WhatsApp
-          </a>
+          </button>
         </div>
       </section>
 
@@ -837,9 +880,9 @@ const AtendconSPA = () => {
         <div className="max-w-4xl mx-auto px-6 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-6">Transforme a contabilidade em Vantagem Competitiva.</h2>
           <p className="text-xl text-slate-200 mb-10">Agende uma conversa e descubra como podemos alavancar o seu negócio.</p>
-          <a href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de solicitar atendimento e transformar a contabilidade da minha empresa.") + "&type=phone_number&app_absent=0"}`} target="_blank" rel="noreferrer" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
+          <button onClick={openTriageModal} className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-50 transition shadow-2xl">
             Solicitar Atendimento
-          </a>
+          </button>
         </div>
       </section>
 
@@ -921,6 +964,10 @@ const AtendconSPA = () => {
           
           <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold tracking-wide text-slate-500">
             <p>© {new Date().getFullYear()} ATENDCON CONTABILIDADE. Todos os direitos reservados.</p>
+            <button onClick={openTriageModal} className="flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-900 px-4 py-2.5 rounded-xl font-bold shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 w-full md:w-auto">
+              <FaWhatsapp size={20} />
+              Fale com nosso time
+            </button>
             <div className="bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-800 text-slate-400 shadow-inner">
               CNPJ: 12.345.678/0001-90
             </div>
@@ -929,13 +976,12 @@ const AtendconSPA = () => {
       </footer>
 
       {/* 10. FLOATING WHATSAPP */}
-      <a 
-        href={`${WHATSAPP_LINK}&text=${encodeURIComponent("Olá! Gostaria de tirar algumas dúvidas.") + "&type=phone_number&app_absent=0"}`} 
-        target="_blank" rel="noreferrer"
+      <button 
+        onClick={openTriageModal}
         className={`fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0 pointer-events-none'}`}
       >
         <FaWhatsapp size={32} />
-      </a>
+      </button>
     </div>
   );
 };
