@@ -658,24 +658,16 @@ const AtendconSPA = () => {
           </h2>
         </div>
         
-        <div className="w-full overflow-hidden relative pb-12 z-10">
-          {/* Fading edges for the marquee effect */}
-          <div className="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-[#0b1120] to-transparent z-20 pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-[#0b1120] to-transparent z-20 pointer-events-none"></div>
+        <div className="w-full relative pb-12 z-10">
+          {/* Fading edges for smooth scroll hiding */}
+          <div className="absolute top-0 left-0 w-8 md:w-32 h-full bg-gradient-to-r from-[#0b1120] to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-8 md:w-32 h-full bg-gradient-to-l from-[#0b1120] to-transparent z-20 pointer-events-none"></div>
 
-          <motion.div 
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ ease: "linear", duration: 40, repeat: Infinity }}
-            className="flex gap-6 w-max px-6"
+          <div 
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-12 md:px-32 scroll-smooth [&::-webkit-scrollbar]:hidden"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {[
-              { name: "Décio Jr", text: "Excelente profissional com elevado conhecimento em contabilidade em geral. Atendimento nota 10. Altamente recomendável." },
-              { name: "Nívea Diniz", text: "Atendimento impecável. Fui orientada com clareza e honestidade do início ao fim." },
-              { name: "Karen Alexandra Victor Carneiro", text: "Há mais de 4 anos conto com o auxílio do Daniel para resolver questões junto à Receita Federal." },
-              { name: "Ana Sousa", text: "Fechamento de empresa realizado com eficiência e preço justo." },
-              { name: "Nilson Martins Peroche", text: "Profissional eficiente e dedicado. Recomendo sem dúvidas." },
-              { name: "Ciça Carolina", text: "Há quase 5 anos contamos com a AtendCon. Agilidade, atenção e competência." },
-              // Duplicate the array to create the infinite loop effect seamlessly
               { name: "Décio Jr", text: "Excelente profissional com elevado conhecimento em contabilidade em geral. Atendimento nota 10. Altamente recomendável." },
               { name: "Nívea Diniz", text: "Atendimento impecável. Fui orientada com clareza e honestidade do início ao fim." },
               { name: "Karen Alexandra Victor Carneiro", text: "Há mais de 4 anos conto com o auxílio do Daniel para resolver questões junto à Receita Federal." },
@@ -685,7 +677,7 @@ const AtendconSPA = () => {
             ].map((review, i) => (
               <div 
                 key={i}
-                className="bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-500/30 p-8 rounded-3xl shadow-xl flex flex-col justify-between w-[320px] md:w-[400px] shrink-0 text-left transition-transform hover:scale-[1.02]"
+                className="bg-gradient-to-br from-blue-700 to-blue-900 border border-blue-500/30 p-8 rounded-3xl shadow-xl flex flex-col justify-between w-[300px] md:w-[400px] shrink-0 snap-center text-left transition-transform hover:-translate-y-1"
               >
                 <div>
                   <div className="flex text-yellow-400 text-lg mb-4">
@@ -706,7 +698,7 @@ const AtendconSPA = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
