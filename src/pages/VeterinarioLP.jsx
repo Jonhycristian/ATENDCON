@@ -574,7 +574,7 @@ const AtendconSPA = () => {
       <section id="sobre" className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <img src="/fundo05.jpeg" alt="Team" className="rounded-3xl shadow-2xl object-cover h-[500px] w-full" />
+            <img src="/fundo06.png" alt="Team" className="rounded-3xl shadow-2xl object-cover h-[500px] w-full" />
           </div>
           <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A atenção que sua empresa precisa</h2>
