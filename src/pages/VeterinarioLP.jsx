@@ -220,7 +220,7 @@ const AtendconSPA = () => {
       {/* 2. HERO SECTION */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/fundo06.png" alt="Office Background" className="w-full h-full object-cover" />
+          <img src="/fundo06.png" alt="Office Background" className="w-full h-full object-cover object-top md:object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/50"></div>
         </div>
         
@@ -573,8 +573,8 @@ const AtendconSPA = () => {
       {/* 5. QUEM SOMOS */}
       <section id="sobre" className="py-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] w-full group">
-            <img src="/fundo06.png" alt="Team" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[550px] md:h-[500px] w-full group">
+            <img src="/fundo06.png" alt="Team" className="w-full h-full object-cover object-[center_top] md:object-center group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/70 to-slate-900/20 flex flex-col justify-end p-6 md:p-8">
               <div className="grid grid-cols-2 gap-4 md:gap-6">
                 <div className="text-white">
