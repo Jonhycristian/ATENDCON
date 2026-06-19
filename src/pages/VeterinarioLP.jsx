@@ -540,14 +540,10 @@ const AtendconSPA = () => {
       </section>
 
       {/* 5. QUEM SOMOS */}
-      <section id="sobre" className="py-24 bg-[#020617] text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img src="/fundo04.png" alt="Background Sobre" className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-transparent to-[#020617]"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+      <section id="sobre" className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80" alt="Team" className="rounded-3xl shadow-2xl shadow-blue-900/20 object-cover h-[500px] w-full" />
+            <img src="/fundo04.png" alt="Team" className="rounded-3xl shadow-2xl object-cover h-[500px] w-full" />
             <div className="absolute -bottom-8 -right-8 bg-blue-600 text-white p-8 rounded-3xl shadow-xl hidden md:block">
               <ShieldCheck size={40} className="mb-4" />
               <div className="font-bold text-xl">Alto Padrão</div>
@@ -555,17 +551,17 @@ const AtendconSPA = () => {
             </div>
           </div>
           <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">A atenção que sua empresa precisa</h2>
-            <p className="text-slate-300 mb-6 leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">A atenção que sua empresa precisa</h2>
+            <p className="text-slate-600 mb-6 leading-relaxed">
               A ATENDCON CONTABILIDADE tem fornecido serviços personalizados de contabilidade e fiscais em Belo Horizonte. Com nossa equipe altamente treinada, sempre em busca de novos conhecimentos, estamos prontos para lidar com todas as suas necessidades de contabilidade, seja qual for o grau de complexidade. Caso precise de ajuda com as suas finanças pessoais ou da sua empresa, estamos sempre prontos para fazer seu planejamento fiscal ou prestar assessoria.
             </p>
-            <p className="text-slate-300 mb-6 leading-relaxed">
+            <p className="text-slate-600 mb-6 leading-relaxed">
               Construímos uma excelente reputação cuidando das necessidades fiscais e contábeis de uma grande variedade de empresas e pessoas. Temos toda a informação disponível e queremos trabalhar com você.
             </p>
             <div className="space-y-4 w-full">
-              <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-white/10 text-left">
-                <h4 className="font-bold text-white mb-2">Serviço Personalizado, Resultados Mensuráveis</h4>
-                <p className="text-slate-300 text-sm">Entregar segurança jurídica e financeira através de uma contabilidade consultiva, permitindo que você foque no que faz de melhor: o seu negócio.</p>
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-left">
+                <h4 className="font-bold text-slate-900 mb-2">Serviço Personalizado, Resultados Mensuráveis</h4>
+                <p className="text-slate-600 text-sm">Entregar segurança jurídica e financeira através de uma contabilidade consultiva, permitindo que você foque no que faz de melhor: o seu negócio.</p>
               </div>
             </div>
           </div>
