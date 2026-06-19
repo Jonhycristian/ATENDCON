@@ -542,8 +542,8 @@ const AtendconSPA = () => {
       {/* 5. QUEM SOMOS */}
       <section id="sobre" className="py-24 bg-[#020617] text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/fundo04.png" alt="Background Sobre" className="w-full h-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#020617]/80 to-[#020617]"></div>
+          <img src="/fundo04.png" alt="Background Sobre" className="w-full h-full object-cover opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-transparent to-[#020617]"></div>
         </div>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="relative">
