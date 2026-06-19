@@ -457,23 +457,23 @@ const AtendconSPA = () => {
                 ⭐ Expertise de Nicho
               </div>
               <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
-                Especialistas em <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Comércio</span> e Serviços
+                Especialistas em <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Serviços</span> Veterinários
               </h3>
               <p className="text-slate-300 text-lg mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Temos o conhecimento técnico profundo que diferencia a AtendCon da maioria das contabilidades tradicionais. Atendimento completo para o seu negócio.
+                Temos o conhecimento técnico profundo que diferencia a AtendCon da maioria das contabilidades tradicionais. Atendimento completo para clínicas e hospitais veterinários.
               </p>
               <button onClick={openTriageModal} className="inline-block bg-yellow-500 text-slate-900 px-8 py-3.5 rounded-full font-bold hover:bg-yellow-400 transition-colors shadow-lg">
-                Falar com Especialista
+                Falar com Especialista do Setor
               </button>
             </div>
             
             <div className="flex-1 relative z-10 w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
-                  "Lojas e Varejo",
-                  "Prestadores de Serviços",
-                  "Profissionais Liberais",
-                  "Clínicas e Consultórios"
+                  "Clínicas Veterinárias",
+                  "Hospitais Veterinários",
+                  "Pet Shops e Estética Animal",
+                  "Profissionais Autônomos"
                 ].map((item, i) => (
                   <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 px-5 py-4 rounded-xl flex items-center gap-3 text-white font-medium">
                     <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
