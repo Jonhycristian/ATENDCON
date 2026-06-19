@@ -4,7 +4,8 @@ import {
   Menu, X, TrendingUp, TrendingDown, Calculator, Users, Briefcase, 
   Search, ShieldCheck, ChevronDown, MapPin, Mail, Phone, ArrowRight, DollarSign, Activity, Clock
 } from 'lucide-react';
-import { FaWhatsapp, FaInstagram, FaGooglePlay, FaApple } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram, FaGooglePlay, FaApple, FaChartLine, FaCoins, FaBullseye, FaChartBar, FaTags, FaShieldAlt, FaHeart } from 'react-icons/fa';
+import { FaArrowTrendUp } from 'react-icons/fa6';
 import logo from '../assets/logo.png';
 import logo1 from '../assets/logo1.png';
 import logo2 from '../assets/logo2.png';
@@ -217,64 +218,94 @@ const AtendconSPA = () => {
       </header>
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-20 pb-6 md:pt-28 md:pb-8 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col justify-center pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/fundo-00.png" alt="Office Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/40"></div>
+          <img src="/fundo06.png" alt="Office Background" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/50"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full mt-4">
           <motion.div 
             initial="hidden" animate="visible"
             variants={{
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
             }}
-            className="w-full flex flex-col items-center md:items-start text-center md:text-left"
+            className="w-full flex flex-col lg:flex-row items-center gap-12"
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 font-semibold text-xs md:text-sm mb-4 backdrop-blur-sm">
-              Contabilidade Especializada em Veterinária
-            </motion.div>
-            <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4 max-w-4xl">
-              Contabilidade estratégica para clínicas veterinárias e pet shops crescerem com <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">segurança.</span>
-            </motion.h1>
+            {/* Esquerda: Textos e Botões */}
+            <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="inline-block px-4 py-1.5 rounded-full bg-[#14B8A6]/20 border border-[#14B8A6]/30 text-[#14B8A6] font-semibold text-xs md:text-sm mb-6 backdrop-blur-sm shadow-lg shadow-[#14B8A6]/10">
+                Contabilidade Especializada em Veterinária
+              </motion.div>
+              <motion.h1 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 max-w-2xl">
+                Contabilidade Especializada para <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#14B8A6] to-teal-200">Clínicas Veterinárias</span>
+              </motion.h1>
 
-            <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-sm md:text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed">
-              Soluções completas em gestão contábil, fiscal e empresarial para profissionais de medicina veterinária. Foque nos seus pacientes e deixe a burocracia com nossos especialistas.
-            </motion.p>
-            
-            <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full sm:w-auto mb-10">
-              <button onClick={openTriageModal} className="relative group overflow-hidden bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-full font-bold text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105">
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
-                <FaWhatsapp size={20} className="relative z-10" />
-                <span className="relative z-10">Falar com Especialista</span>
-              </button>
-              <a href="#servicos" className="bg-white/5 text-white border border-white/10 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md">
-                Conhecer Soluções
-              </a>
-            </motion.div>
+              <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="text-base md:text-xl text-slate-300 mb-10 max-w-xl leading-relaxed">
+                Mais controle financeiro, menos impostos e decisões estratégicas para o crescimento da sua clínica.
+              </motion.p>
+              
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
+                <button onClick={openTriageModal} className="relative group overflow-hidden bg-[#0F766E] text-white px-8 py-4 rounded-full font-bold text-center transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(15,118,110,0.5)] hover:shadow-[0_0_30px_rgba(20,184,166,0.6)] hover:bg-[#14B8A6] hover:-translate-y-1">
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+                  📞 <span className="relative z-10">Solicitar Consultoria</span>
+                </button>
+                <button onClick={openTriageModal} className="bg-white/10 text-white border border-[#14B8A6]/30 px-8 py-4 rounded-full font-semibold text-center hover:bg-white/20 hover:border-[#14B8A6]/60 transition-all backdrop-blur-md flex items-center justify-center gap-2 hover:-translate-y-1">
+                  <FaWhatsapp size={20} className="text-[#14B8A6]" /> Falar no WhatsApp
+                </button>
+              </motion.div>
+            </div>
 
+            {/* Direita: 6 Cards de Ícones */}
             <motion.div 
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 w-full max-w-4xl"
+              variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
+              className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full"
             >
               {[
-                { label: "Avaliação no Google", value: 5, prefix: "⭐ ", suffix: ".0" },
-                { label: "Empresas Atendidas", value: 300, prefix: "+", suffix: "" },
-                { label: "Processos Realizados", value: 5000, prefix: "+", suffix: "" },
-                { label: "Taxa de Retenção", value: 98, prefix: "", suffix: "%" }
-              ].map((stat, i) => (
-                <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl text-white cursor-default text-center flex flex-col justify-center items-center hover:bg-white/10 transition">
-                  <div className="text-xl md:text-3xl font-black text-blue-400 mb-1">
-                    <Counter from={0} to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                { icon: <FaChartLine className="text-xl text-[#14B8A6]" />, title: "Gestão Financeira", desc: "Controle de fluxo de caixa, custos e lucratividade." },
+                { icon: <FaCoins className="text-xl text-[#14B8A6]" />, title: "Redução de Impostos", desc: "Planejamento tributário para pagar apenas o necessário." },
+                { icon: <FaBullseye className="text-xl text-[#14B8A6]" />, title: "Planejamento Estratégico", desc: "Metas e indicadores para crescimento sustentável." },
+                { icon: <FaChartBar className="text-xl text-[#14B8A6]" />, title: "Indicadores e Resultados", desc: "Acompanhe o desempenho da clínica em tempo real." },
+                { icon: <FaTags className="text-xl text-[#14B8A6]" />, title: "Precificação de Serviços", desc: "Defina preços que aumentam sua margem de lucro." },
+                { icon: <FaShieldAlt className="text-xl text-[#14B8A6]" />, title: "Regularização e Compliance", desc: "Conformidade com as exigências legais." },
+              ].map((card, i) => (
+                <div key={i} className="bg-white rounded-xl p-5 shadow-lg border border-slate-100 flex flex-col gap-3 hover:-translate-y-1 transition-transform group text-left">
+                  <div className="w-10 h-10 rounded-lg bg-[#14B8A6]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    {card.icon}
                   </div>
-                  <div className="text-[10px] md:text-xs text-slate-300 font-medium">{stat.label}</div>
+                  <div>
+                    <h3 className="font-bold text-slate-800 text-sm mb-1">{card.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">{card.desc}</p>
+                  </div>
                 </div>
               ))}
             </motion.div>
           </motion.div>
+        </div>
+      </section>
 
-
+      {/* FAIXA DE BENEFÍCIOS */}
+      <section className="bg-[#0F766E] py-8 relative z-20 shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: <FaShieldAlt />, title: "Segurança", desc: "Conformidade e tranquilidade para seu negócio." },
+              { icon: <FaBullseye />, title: "Estratégia", desc: "Decisões baseadas em dados." },
+              { icon: <FaHeart />, title: "Propósito", desc: "Mais tempo para os pacientes." },
+              { icon: <FaArrowTrendUp />, title: "Crescimento", desc: "Planejamento para expandir a clínica." },
+            ].map((ben, i) => (
+              <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4 text-white text-center md:text-left">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 text-xl backdrop-blur-sm border border-white/20 shadow-inner">
+                  {ben.icon}
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm md:text-base leading-tight mb-1">{ben.title}</h4>
+                  <p className="text-teal-100/80 text-[11px] md:text-xs font-medium leading-tight max-w-[160px] md:max-w-none">{ben.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
