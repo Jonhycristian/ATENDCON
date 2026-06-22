@@ -576,42 +576,34 @@ const AtendconSPA = () => {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[450px] md:h-[500px] w-full group bg-slate-900">
             <img src="/fundo06.png" alt="Team" className="w-full h-full object-contain md:object-cover object-top md:object-center md:group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/70 to-slate-900/20 flex flex-col justify-end p-6 md:p-8">
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl p-3 md:p-4 hover:-translate-y-1 hover:bg-slate-800/80 hover:border-teal-500/40 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="bg-teal-500/20 p-2 rounded-lg">
-                      <ShieldCheck size={18} className="text-teal-400" />
-                    </div>
-                    <h4 className="font-bold text-sm md:text-base text-white">Segurança</h4>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:gap-10 mt-4">
+                <div className="group/item flex flex-col">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-3 group-hover/item:bg-teal-500/20 group-hover/item:scale-110 transition-all duration-300 shadow-lg">
+                    <ShieldCheck size={22} className="text-teal-400" />
                   </div>
-                  <p className="text-slate-300 text-xs md:text-sm leading-relaxed">Conformidade e tranquilidade para seu negócio.</p>
+                  <h4 className="font-bold text-base md:text-lg text-white mb-1">Segurança</h4>
+                  <p className="text-slate-300 text-sm md:text-base leading-relaxed">Conformidade e tranquilidade para seu negócio.</p>
                 </div>
-                <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl p-3 md:p-4 hover:-translate-y-1 hover:bg-slate-800/80 hover:border-teal-500/40 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="bg-teal-500/20 p-2 rounded-lg">
-                      <TrendingUp size={18} className="text-teal-400" />
-                    </div>
-                    <h4 className="font-bold text-sm md:text-base text-white">Estratégia</h4>
+                <div className="group/item flex flex-col">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-3 group-hover/item:bg-teal-500/20 group-hover/item:scale-110 transition-all duration-300 shadow-lg">
+                    <TrendingUp size={22} className="text-teal-400" />
                   </div>
-                  <p className="text-slate-300 text-xs md:text-sm leading-relaxed">Decisões baseadas em dados.</p>
+                  <h4 className="font-bold text-base md:text-lg text-white mb-1">Estratégia</h4>
+                  <p className="text-slate-300 text-sm md:text-base leading-relaxed">Decisões baseadas em dados.</p>
                 </div>
-                <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl p-3 md:p-4 hover:-translate-y-1 hover:bg-slate-800/80 hover:border-teal-500/40 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="bg-teal-500/20 p-2 rounded-lg">
-                      <Heart size={18} className="text-teal-400" />
-                    </div>
-                    <h4 className="font-bold text-sm md:text-base text-white">Propósito</h4>
+                <div className="group/item flex flex-col">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-3 group-hover/item:bg-teal-500/20 group-hover/item:scale-110 transition-all duration-300 shadow-lg">
+                    <Heart size={22} className="text-teal-400" />
                   </div>
-                  <p className="text-slate-300 text-xs md:text-sm leading-relaxed">Mais tempo para os pacientes.</p>
+                  <h4 className="font-bold text-base md:text-lg text-white mb-1">Propósito</h4>
+                  <p className="text-slate-300 text-sm md:text-base leading-relaxed">Mais tempo para os pacientes.</p>
                 </div>
-                <div className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl p-3 md:p-4 hover:-translate-y-1 hover:bg-slate-800/80 hover:border-teal-500/40 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="bg-teal-500/20 p-2 rounded-lg">
-                      <Rocket size={18} className="text-teal-400" />
-                    </div>
-                    <h4 className="font-bold text-sm md:text-base text-white">Crescimento</h4>
+                <div className="group/item flex flex-col">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-3 group-hover/item:bg-teal-500/20 group-hover/item:scale-110 transition-all duration-300 shadow-lg">
+                    <Rocket size={22} className="text-teal-400" />
                   </div>
-                  <p className="text-slate-300 text-xs md:text-sm leading-relaxed">Planejamento para expandir a clínica.</p>
+                  <h4 className="font-bold text-base md:text-lg text-white mb-1">Crescimento</h4>
+                  <p className="text-slate-300 text-sm md:text-base leading-relaxed">Planejamento para expandir a clínica.</p>
                 </div>
               </div>
             </div>
